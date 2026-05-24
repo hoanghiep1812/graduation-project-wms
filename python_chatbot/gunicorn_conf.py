@@ -1,0 +1,13 @@
+bind = '0.0.0.0:8001'
+# user = 'www'
+workers = 1
+threads = 2
+backlog = 512
+chdir = '/www/wwwroot/easywms.io.vn/python_chatbot'
+access_log_format = '%(t)s %(p)s %(h)s "%(r)s" %(s)s %(L)s %(b)s %(f)s" "%(a)s"'
+loglevel = 'info'
+worker_class = 'uvicorn.workers.UvicornWorker'
+wsgi_app = 'main:app'
+errorlog = chdir + '/logs/error.log'
+accesslog = chdir + '/logs/access.log'
+pidfile = chdir + '/logs/wms_chatbot.pid'

@@ -1,0 +1,24 @@
+nohup: ignoring input
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang load Embedding Model (Lần đầu sẽ hơi lâu)...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 5146.73it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:45: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dimension = embedder.get_sentence_embedding_dimension()
+llama_context: n_ctx_seq (1024) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+INFO:     Started server process [10025]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8001): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+⏳ Đang đồng bộ danh mục sản phẩm từ Laravel vào Vector DB...
+✅ Đã nạp thành công 6 sản phẩm chuẩn từ Database vào FAISS!
+⏳ Đang nạp Model LLM (Qwen 1.5B) vào RAM...
+✅ Đã nạp xong LLM!

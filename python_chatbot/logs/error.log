@@ -1,0 +1,484 @@
+[2026-04-09 17:55:53 +0700] [255690] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 17:55:53 +0700] [255690] [INFO] Listening at: http://0.0.0.0:8001 (255690)
+[2026-04-09 17:55:53 +0700] [255690] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 17:55:53 +0700] [255691] [INFO] Booting worker with pid: 255691
+[2026-04-09 17:55:53 +0700] [255690] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 17:56:00 +0700] [255691] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 713, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 136, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/util.py", line 377, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 6, in <module>
+    import faiss
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/faiss/__init__.py", line 16, in <module>
+    from .loader import *
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/faiss/loader.py", line 65, in <module>
+    from .swigfaiss import *
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/faiss/swigfaiss.py", line 13, in <module>
+    from . import _swigfaiss
+ImportError: numpy.core.multiarray failed to import
+[2026-04-09 17:56:00 +0700] [255691] [INFO] Worker exiting (pid: 255691)
+[2026-04-09 17:56:00 +0700] [255690] [ERROR] Worker (pid:255691) exited with code 3.
+[2026-04-09 17:56:00 +0700] [255690] [ERROR] Shutting down: Master
+[2026-04-09 17:56:00 +0700] [255690] [ERROR] Reason: Worker failed to boot.
+[2026-04-09 17:57:30 +0700] [255712] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 17:57:30 +0700] [255712] [INFO] Listening at: http://0.0.0.0:8001 (255712)
+[2026-04-09 17:57:30 +0700] [255712] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 17:57:30 +0700] [255713] [INFO] Booting worker with pid: 255713
+[2026-04-09 17:57:30 +0700] [255712] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 17:57:36 +0700] [255713] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/transformers/utils/hub.py", line 422, in cached_files
+    hf_hub_download(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 965, in hf_hub_download
+    hf_headers = build_hf_headers(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/huggingface_hub/utils/_headers.py", line 108, in build_hf_headers
+    token_to_send = get_token_to_send(token)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/huggingface_hub/utils/_headers.py", line 136, in get_token_to_send
+    cached_token = get_token()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/huggingface_hub/utils/_auth.py", line 48, in get_token
+    return _get_token_from_google_colab() or _get_token_from_environment() or _get_token_from_file()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/huggingface_hub/utils/_auth.py", line 122, in _get_token_from_file
+    return _clean_token(Path(constants.HF_TOKEN_PATH).read_text())
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+PermissionError: [Errno 13] Permission denied: '/root/.cache/huggingface/token'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 713, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 136, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/gunicorn/util.py", line 377, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 50, in <module>
+    embedder = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 339, in __init__
+    modules = self._load_auto_model(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 2130, in _load_auto_model
+    transformer_model = Transformer(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 120, in __init__
+    config, is_peft_model = self._load_config(model_name_or_path, cache_dir, backend, config_args)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 171, in _load_config
+    find_adapter_config_file(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/transformers/utils/peft_utils.py", line 84, in find_adapter_config_file
+    adapter_cached_filename = cached_file(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/transformers/utils/hub.py", line 278, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/transformers/utils/hub.py", line 467, in cached_files
+    raise OSError(
+OSError: PermissionError at /root/.cache/huggingface/token when downloading sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2. Check cache directory permissions. Common causes: 1) another user is downloading the same model (please wait); 2) a previous download was canceled and the lock file needs manual removal.
+[2026-04-09 17:57:36 +0700] [255713] [INFO] Worker exiting (pid: 255713)
+[2026-04-09 17:57:37 +0700] [255712] [ERROR] Worker (pid:255713) exited with code 3.
+[2026-04-09 17:57:37 +0700] [255712] [ERROR] Shutting down: Master
+[2026-04-09 17:57:37 +0700] [255712] [ERROR] Reason: Worker failed to boot.
+[2026-04-09 17:59:19 +0700] [255753] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 17:59:19 +0700] [255753] [INFO] Listening at: http://0.0.0.0:8001 (255753)
+[2026-04-09 17:59:19 +0700] [255753] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 17:59:19 +0700] [255754] [INFO] Booting worker with pid: 255754
+[2026-04-09 17:59:19 +0700] [255753] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 17:59:59 +0700] [255754] [INFO] Started server process [255754]
+[2026-04-09 17:59:59 +0700] [255754] [INFO] Waiting for application startup.
+[2026-04-09 17:59:59 +0700] [255754] [INFO] Application startup complete.
+[2026-04-09 18:07:49 +0700] [256327] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 18:07:49 +0700] [256327] [INFO] Listening at: http://0.0.0.0:8001 (256327)
+[2026-04-09 18:07:49 +0700] [256327] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 18:07:49 +0700] [256329] [INFO] Booting worker with pid: 256329
+[2026-04-09 18:07:49 +0700] [256327] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:08:06 +0700] [256329] [INFO] Started server process [256329]
+[2026-04-09 18:08:06 +0700] [256329] [INFO] Waiting for application startup.
+[2026-04-09 18:08:06 +0700] [256329] [INFO] Application startup complete.
+[2026-04-09 18:11:35 +0700] [256537] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 18:11:35 +0700] [256537] [INFO] Listening at: http://0.0.0.0:8001 (256537)
+[2026-04-09 18:11:35 +0700] [256537] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 18:11:35 +0700] [256538] [INFO] Booting worker with pid: 256538
+[2026-04-09 18:11:35 +0700] [256537] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:11:50 +0700] [256538] [INFO] Started server process [256538]
+[2026-04-09 18:11:50 +0700] [256538] [INFO] Waiting for application startup.
+[2026-04-09 18:11:50 +0700] [256538] [INFO] Application startup complete.
+[2026-04-09 18:17:18 +0700] [256537] [INFO] Handling signal: hup
+[2026-04-09 18:17:18 +0700] [256537] [INFO] Hang up: Master
+[2026-04-09 18:17:18 +0700] [256626] [INFO] Booting worker with pid: 256626
+[2026-04-09 18:17:18 +0700] [256537] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:17:18 +0700] [256537] [WARNING] Worker (pid:256538) was sent SIGHUP!
+[2026-04-09 18:17:34 +0700] [256626] [INFO] Started server process [256626]
+[2026-04-09 18:17:34 +0700] [256626] [INFO] Waiting for application startup.
+[2026-04-09 18:17:34 +0700] [256626] [INFO] Application startup complete.
+[2026-04-09 18:21:31 +0700] [257118] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 18:21:31 +0700] [257118] [INFO] Listening at: http://0.0.0.0:8001 (257118)
+[2026-04-09 18:21:31 +0700] [257118] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 18:21:31 +0700] [257119] [INFO] Booting worker with pid: 257119
+[2026-04-09 18:21:31 +0700] [257118] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:21:46 +0700] [257119] [INFO] Started server process [257119]
+[2026-04-09 18:21:46 +0700] [257119] [INFO] Waiting for application startup.
+[2026-04-09 18:21:46 +0700] [257119] [INFO] Application startup complete.
+[2026-04-09 18:21:46 +0700] [257119] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 316, in chat
+    state = MASTER_MEMORY
+NameError: name 'MASTER_MEMORY' is not defined
+[2026-04-09 18:22:04 +0700] [257119] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 316, in chat
+    state = MASTER_MEMORY
+NameError: name 'MASTER_MEMORY' is not defined
+[2026-04-09 18:22:10 +0700] [257119] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 316, in chat
+    state = MASTER_MEMORY
+NameError: name 'MASTER_MEMORY' is not defined
+[2026-04-09 18:22:24 +0700] [257119] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 316, in chat
+    state = MASTER_MEMORY
+NameError: name 'MASTER_MEMORY' is not defined
+[2026-04-09 18:23:11 +0700] [257118] [INFO] Handling signal: hup
+[2026-04-09 18:23:11 +0700] [257118] [INFO] Hang up: Master
+[2026-04-09 18:23:11 +0700] [257146] [INFO] Booting worker with pid: 257146
+[2026-04-09 18:23:11 +0700] [257118] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:23:11 +0700] [257118] [WARNING] Worker (pid:257119) was sent SIGHUP!
+[2026-04-09 18:23:26 +0700] [257146] [INFO] Started server process [257146]
+[2026-04-09 18:23:26 +0700] [257146] [INFO] Waiting for application startup.
+[2026-04-09 18:23:26 +0700] [257146] [INFO] Application startup complete.
+[2026-04-09 18:28:42 +0700] [257325] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 18:28:42 +0700] [257325] [INFO] Listening at: http://0.0.0.0:8001 (257325)
+[2026-04-09 18:28:42 +0700] [257325] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 18:28:42 +0700] [257327] [INFO] Booting worker with pid: 257327
+[2026-04-09 18:28:42 +0700] [257325] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:28:58 +0700] [257327] [INFO] Started server process [257327]
+[2026-04-09 18:28:58 +0700] [257327] [INFO] Waiting for application startup.
+[2026-04-09 18:28:58 +0700] [257327] [INFO] Application startup complete.
+[2026-04-09 18:30:07 +0700] [257325] [INFO] Handling signal: hup
+[2026-04-09 18:30:07 +0700] [257325] [INFO] Hang up: Master
+[2026-04-09 18:30:07 +0700] [257325] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:30:07 +0700] [257359] [INFO] Booting worker with pid: 257359
+[2026-04-09 18:30:07 +0700] [257325] [WARNING] Worker (pid:257327) was sent SIGHUP!
+[2026-04-09 18:30:22 +0700] [257359] [INFO] Started server process [257359]
+[2026-04-09 18:30:22 +0700] [257359] [INFO] Waiting for application startup.
+[2026-04-09 18:30:22 +0700] [257359] [INFO] Application startup complete.
+[2026-04-09 18:32:30 +0700] [257496] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 18:32:30 +0700] [257496] [INFO] Listening at: http://0.0.0.0:8001 (257496)
+[2026-04-09 18:32:30 +0700] [257496] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 18:32:30 +0700] [257497] [INFO] Booting worker with pid: 257497
+[2026-04-09 18:32:30 +0700] [257496] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:32:45 +0700] [257497] [INFO] Started server process [257497]
+[2026-04-09 18:32:45 +0700] [257497] [INFO] Waiting for application startup.
+[2026-04-09 18:32:45 +0700] [257497] [INFO] Application startup complete.
+[2026-04-09 18:33:46 +0700] [257496] [INFO] Handling signal: hup
+[2026-04-09 18:33:46 +0700] [257496] [INFO] Hang up: Master
+[2026-04-09 18:33:46 +0700] [257496] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:33:46 +0700] [257519] [INFO] Booting worker with pid: 257519
+[2026-04-09 18:33:46 +0700] [257496] [WARNING] Worker (pid:257497) was sent SIGHUP!
+[2026-04-09 18:34:01 +0700] [257519] [INFO] Started server process [257519]
+[2026-04-09 18:34:01 +0700] [257519] [INFO] Waiting for application startup.
+[2026-04-09 18:34:01 +0700] [257519] [INFO] Application startup complete.
+[2026-04-09 18:42:07 +0700] [257749] [INFO] Starting gunicorn 25.3.0
+[2026-04-09 18:42:07 +0700] [257749] [INFO] Listening at: http://0.0.0.0:8001 (257749)
+[2026-04-09 18:42:07 +0700] [257749] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-09 18:42:07 +0700] [257750] [INFO] Booting worker with pid: 257750
+[2026-04-09 18:42:07 +0700] [257749] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:42:22 +0700] [257750] [INFO] Started server process [257750]
+[2026-04-09 18:42:22 +0700] [257750] [INFO] Waiting for application startup.
+[2026-04-09 18:42:22 +0700] [257750] [INFO] Application startup complete.
+[2026-04-09 18:42:44 +0700] [257749] [INFO] Handling signal: hup
+[2026-04-09 18:42:44 +0700] [257749] [INFO] Hang up: Master
+[2026-04-09 18:42:44 +0700] [257761] [INFO] Booting worker with pid: 257761
+[2026-04-09 18:42:44 +0700] [257749] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-04-09 18:42:44 +0700] [257749] [WARNING] Worker (pid:257750) was sent SIGHUP!
+[2026-04-09 18:42:59 +0700] [257761] [INFO] Started server process [257761]
+[2026-04-09 18:42:59 +0700] [257761] [INFO] Waiting for application startup.
+[2026-04-09 18:42:59 +0700] [257761] [INFO] Application startup complete.
+[2026-04-13 21:41:20 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-13 21:57:21 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-13 23:23:30 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-14 01:31:46 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-14 11:53:59 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-14 11:57:49 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-14 12:01:02 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 00:05:42 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 03:30:43 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 06:35:50 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 06:36:01 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 06:36:02 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 06:36:06 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 07:38:38 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 07:47:56 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 08:05:59 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 09:16:08 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 10:15:43 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 11:43:46 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 11:48:26 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 11:52:59 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 19:24:03 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 20:43:24 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 20:58:48 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 21:10:03 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 21:26:18 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 21:39:47 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-15 22:02:10 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 04:12:51 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 06:51:33 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 06:51:37 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 06:51:59 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 13:50:23 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 13:54:47 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 13:58:31 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 14:46:59 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 16:15:32 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 17:41:38 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-16 21:06:17 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 01:20:15 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 02:02:34 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 07:46:02 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 07:46:08 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 07:46:20 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 07:52:40 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 09:26:41 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 09:28:41 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 11:48:01 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 11:50:23 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 11:54:17 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 13:11:44 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 20:20:01 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 22:41:53 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 22:41:53 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-17 23:58:46 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 08:57:29 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 08:57:38 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 08:57:58 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 09:35:10 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 10:09:52 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 10:10:01 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 10:10:02 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 10:10:05 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 11:44:48 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 11:44:56 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 11:44:57 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 11:45:01 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 12:08:12 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 12:33:09 +0700] [257761] [WARNING] Invalid HTTP request received.
+[2026-04-18 16:49:08 +0700] [257749] [INFO] Handling signal: term
+[2026-04-18 16:49:08 +0700] [257749] [WARNING] Worker (pid:257761) was sent SIGHUP!
+[2026-04-18 16:49:08 +0700] [257749] [INFO] Shutting down: Master
+[2026-04-18 16:50:42 +0700] [647] [INFO] Starting gunicorn 25.3.0
+[2026-04-18 16:50:42 +0700] [647] [INFO] Listening at: http://0.0.0.0:8001 (647)
+[2026-04-18 16:50:42 +0700] [647] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-04-18 16:50:42 +0700] [1098] [INFO] Booting worker with pid: 1098
+[2026-04-18 16:50:42 +0700] [647] [INFO] Control socket listening at /root/.gunicorn/gunicorn.ctl
+[2026-04-18 16:51:10 +0700] [1098] [INFO] Started server process [1098]
+[2026-04-18 16:51:10 +0700] [1098] [INFO] Waiting for application startup.
+[2026-04-18 16:51:10 +0700] [1098] [INFO] Application startup complete.
+[2026-04-18 17:11:23 +0700] [1098] [WARNING] Invalid HTTP request received.
+[2026-04-18 17:14:36 +0700] [1098] [WARNING] Invalid HTTP request received.
+[2026-04-18 17:16:37 +0700] [1098] [WARNING] Invalid HTTP request received.

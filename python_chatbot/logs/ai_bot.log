@@ -1,0 +1,92 @@
+nohup: ignoring input
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang load Embedding Model (Lần đầu sẽ hơi lâu)...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 16855.14it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang load Embedding Model (Lần đầu sẽ hơi lâu)...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 17067.45it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+⏳ Đang đồng bộ danh mục sản phẩm từ Laravel vào Vector DB...
+✅ Đã nạp thành công 6 sản phẩm chuẩn từ Database vào FAISS!
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'unknown'}
+🎯 [Semantic Search] 'tháng   iphone' -> Khớp: 'iPhone 15' (Score: 0.75)
+DEBUG: {'text': 'tháng này iphone xuất nhanh hay chậm', 'intent': 'product_velocity', 'sku': 'IPHONE-15', 'target_skus': ['IPHONE-15'], 'last_intent': 'product_velocity'}
+🎯 [Semantic Search] 'mỳ tôm' -> Khớp: 'Mỳ tôm' (Score: 0.97)
+🎯 [Semantic Search] 'mỳ tôm' -> Khớp: 'Mỳ tôm' (Score: 0.97)
+DEBUG: {'text': 'thế còn mỳ tôm', 'intent': 'unknown', 'sku': 'MT-KOKOMI-01', 'target_skus': ['MT-KOKOMI-01'], 'last_intent': 'unknown'}
+🎯 [Semantic Search] 'mỳ tôm' -> Khớp: 'Mỳ tôm' (Score: 0.97)
+DEBUG: {'text': 'mỳ tôm xuất nhanh hay chậm', 'intent': 'product_velocity', 'sku': 'MT-KOKOMI-01', 'target_skus': ['MT-KOKOMI-01'], 'last_intent': 'product_velocity'}
+🎯 [Semantic Search] 'nào đang chạm mốc cạn kho' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.46)
+DEBUG: {'text': 'sản phẩm nào đang chạm mốc cạn kho', 'intent': 'low_stock', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'low_stock'}
+🎯 [Semantic Search] 'iphone đang ở' -> Khớp: 'iPhone 15' (Score: 0.77)
+DEBUG: {'text': 'iphone đang ở kệ nào', 'intent': 'location', 'sku': 'IPHONE-15', 'target_skus': ['IPHONE-15'], 'last_intent': 'location'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'tháng       nào' (Best score: 0.24)
+DEBUG: {'text': 'tháng này nhập sản phẩm nào', 'intent': 'top_imported', 'sku': None, 'target_skus': [], 'last_intent': 'top_imported'}
+🎯 [Semantic Search] 'máy lọc nước karofi đang ở' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.76)
+DEBUG: {'text': 'Máy Lọc Nước Karofi đang ở kệ nào', 'intent': 'location', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'location'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'Hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'unknown'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'tháng       nào' (Best score: 0.24)
+DEBUG: {'text': 'Tháng này nhập sản phẩm nào', 'intent': 'top_imported', 'sku': None, 'target_skus': [], 'last_intent': 'top_imported'}
+🎯 [Semantic Search] 'chào bạn' -> Khớp: 'Sữa rửa mặt' (Score: 0.42)
+DEBUG: {'text': 'chào bạn', 'intent': 'greeting', 'sku': 'suaruamat', 'target_skus': ['suaruamat'], 'last_intent': 'unknown'}
+🎯 [Semantic Search] 'có     nào ko' -> Khớp: 'Sữa rửa mặt' (Score: 0.41)
+DEBUG: {'text': 'hôm nay có nhập sản phẩm nào ko', 'intent': 'today_imported', 'sku': 'suaruamat', 'target_skus': ['suaruamat'], 'last_intent': 'today_imported'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'tháng       nào' (Best score: 0.24)
+DEBUG: {'text': 'tháng này nhập sản phẩm nào', 'intent': 'top_imported', 'sku': None, 'target_skus': [], 'last_intent': 'top_imported'}
+🎯 [Semantic Search] 'nokia   cổ tháng' -> Khớp: 'Sữa rửa mặt' (Score: 0.45)
+DEBUG: {'text': 'Nokia 1280 Cổ tháng này xuất nhanh hay chậm', 'intent': 'product_velocity', 'sku': 'suaruamat', 'target_skus': ['suaruamat'], 'last_intent': 'product_velocity'}
+🎯 [Semantic Search] 'tháng   nokia   cổ' -> Khớp: 'Sữa rửa mặt' (Score: 0.44)
+DEBUG: {'text': 'tháng này Nokia 1280 Cổ xuất nhanh hay chậm', 'intent': 'product_velocity', 'sku': 'suaruamat', 'target_skus': ['suaruamat'], 'last_intent': 'product_velocity'}
+🎯 [Semantic Search] 'tháng   mỳ tôm' -> Khớp: 'Mỳ tôm' (Score: 0.69)
+DEBUG: {'text': 'tháng này Mỳ tôm xuất nhanh hay chậm', 'intent': 'product_velocity', 'sku': 'MT-KOKOMI-01', 'target_skus': ['MT-KOKOMI-01'], 'last_intent': 'product_velocity'}
+🎯 [Semantic Search] 'máy lọc nước karofi tháng' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.71)
+DEBUG: {'text': 'Máy Lọc Nước Karofi tháng này xuất nhanh hay chậm', 'intent': 'product_velocity', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'product_velocity'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'unknown'}
+🎯 [Semantic Search] 'mỳ tôm đang ở' -> Khớp: 'Mỳ tôm' (Score: 0.91)
+DEBUG: {'text': 'sản phẩm mỳ tôm đang ở kệ nào', 'intent': 'location', 'sku': 'MT-KOKOMI-01', 'target_skus': ['MT-KOKOMI-01'], 'last_intent': 'location'}
+🎯 [Semantic Search] 'nào đang chạm mộc cạn kho' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.49)
+DEBUG: {'text': 'sản phẩm nào đang chạm mộc cạn kho', 'intent': 'low_stock', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'low_stock'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'unknown'}
+🎯 [Semantic Search] 'nào đang chạm mốc cạn kho' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.46)
+DEBUG: {'text': 'sản phẩm nào đang chạm mốc cạn kho', 'intent': 'low_stock', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'low_stock'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'unknown'}
+🎯 [Semantic Search] 'nào đang chạm mốc cạn kho' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.46)
+DEBUG: {'text': 'sản phẩm nào đang chạm mốc cạn kho', 'intent': 'low_stock', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'low_stock'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'low_stock'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'low_stock'}
+🎯 [Semantic Search] 'sản' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.49)
+DEBUG: {'text': 'sản', 'intent': 'low_stock', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'low_stock'}
+🎯 [Semantic Search] 'chào' -> Khớp: 'Sữa rửa mặt' (Score: 0.43)
+DEBUG: {'text': 'chào', 'intent': 'greeting', 'sku': 'suaruamat', 'target_skus': ['suaruamat'], 'last_intent': 'low_stock'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'tháng     những   nào' (Best score: 0.20)
+DEBUG: {'text': 'tháng này nhập những sản phẩm nào', 'intent': 'top_imported', 'sku': None, 'target_skus': ['suaruamat'], 'last_intent': 'top_imported'}
+🎯 [Semantic Search] 'mỳ tôm đang ở' -> Khớp: 'Mỳ tôm' (Score: 0.91)
+DEBUG: {'text': 'mỳ tôm đang ở kệ nào', 'intent': 'location', 'sku': 'MT-KOKOMI-01', 'target_skus': ['MT-KOKOMI-01'], 'last_intent': 'location'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'unknown'}
+⚠️ [Semantic Search] Không tìm thấy gì khớp với 'hello' (Best score: 0.35)
+DEBUG: {'text': 'hello', 'intent': 'greeting', 'sku': None, 'target_skus': [], 'last_intent': 'location'}
+🎯 [Semantic Search] 'nào đang chạm mốc cạn kho' -> Khớp: 'Máy Lọc Nước Karofi' (Score: 0.46)
+DEBUG: {'text': 'sản phẩm nào đang chạm mốc cạn kho', 'intent': 'low_stock', 'sku': 'KRF-001', 'target_skus': ['KRF-001'], 'last_intent': 'low_stock'}
+🎯 [Semantic Search] 'chào' -> Khớp: 'Sữa rửa mặt' (Score: 0.43)
+DEBUG: 

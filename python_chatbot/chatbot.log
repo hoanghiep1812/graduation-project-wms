@@ -1,0 +1,14 @@
+nohup: ignoring input
+⏳ Đang tải Embedding Model...
+✅ Vector DB đã sẵn sàng với 6 sản phẩm.
+⏳ Đang nạp LLM Q3...
+Traceback (most recent call last):
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 115, in <module>
+    llm = Llama(
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/llama_cpp/llama.py", line 962, in __init__
+    self._n_vocab = self.n_vocab()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/llama_cpp/llama.py", line 2274, in n_vocab
+    return self._model.n_vocab()
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/llama_cpp/llama.py", line 251, in n_vocab
+    assert self.model is not None
+AssertionError

@@ -1,0 +1,299 @@
+nohup: ignoring input
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 22323.85it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:60: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dim = embedder.get_sentence_embedding_dimension()
+llama_context: n_ctx_seq (512) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+INFO:     Will watch for changes in these directories: ['/www/wwwroot/easywms.io.vn/python_chatbot']
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     Started reloader process [95630] using StatReload
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11360.18it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:60: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dim = embedder.get_sentence_embedding_dimension()
+llama_context: n_ctx_seq (512) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7955.95it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:60: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dim = embedder.get_sentence_embedding_dimension()
+llama_context: n_ctx_seq (512) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+INFO:     Started server process [95649]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+INFO:     103.166.183.10:0 - "POST /chat HTTP/1.1" 200 OK
+INFO:     103.166.183.10:0 - "POST /chat HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [95649]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 21337.15it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/usr/lib/python3.10/runpy.py", line 288, in run_path
+    code, fname = _get_code_from_file(run_name, path_name)
+  File "/usr/lib/python3.10/runpy.py", line 257, in _get_code_from_file
+    code = compile(f.read(), fname, 'exec')
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 602
+    if template_resp and not (intent in SKU_BASED_INTENTS and product is None):
+                                                                               ^
+IndentationError: unindent does not match any outer indentation level
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/usr/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/usr/lib/python3.10/runpy.py", line 288, in run_path
+    code, fname = _get_code_from_file(run_name, path_name)
+  File "/usr/lib/python3.10/runpy.py", line 257, in _get_code_from_file
+    code = compile(f.read(), fname, 'exec')
+  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 602
+    if template_resp and not (intent in SKU_BASED_INTENTS and product is None):
+TabError: inconsistent use of tabs and spaces in indentation
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6550.72it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:60: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dim = embedder.get_sentence_embedding_dimension()
+llama_context: n_ctx_seq (512) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 13731.46it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:60: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dim = embedder.get_sentence_embedding_dimension()
+llama_context: n_ctx_seq (512) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+INFO:     Started server process [95912]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+INFO:     103.166.183.10:0 - "POST /chat HTTP/1.1" 200 OK
+/tmp/pip-install-f6serjhg/llama-cpp-python_8c08b7deb07b4b37928a9a49185661b0/vendor/llama.cpp/ggml/src/ggml-cpu/ops.cpp:4938: GGML_ASSERT(i1 >= 0 && i1 < ne1) failed
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-base.so.0(+0x1870b)[0x7f706e24070b]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-base.so.0(ggml_print_backtrace+0x21f)[0x7f706e240b6f]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-base.so.0(ggml_abort+0x152)[0x7f706e240d42]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-cpu.so.0(ggml_compute_forward_set_rows+0x322)[0x7f706e1361d2]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-cpu.so.0(+0x1abce)[0x7f706e0bebce]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-cpu.so.0(ggml_graph_compute+0x1f3)[0x7f706e0c13e3]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-cpu.so.0(+0x1d76f)[0x7f706e0c176f]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libggml-base.so.0(ggml_backend_sched_graph_compute_async+0x81f)[0x7f706e25e3af]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libllama.so(_ZN13llama_context13graph_computeEP11ggml_cgraphb+0xa1)[0x7f706e3a0f31]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libllama.so(_ZN13llama_context14process_ubatchERK12llama_ubatch14llm_graph_typeP22llama_memory_context_iR11ggml_status+0x115)[0x7f706e3a1365]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libllama.so(_ZN13llama_context6decodeERK11llama_batch+0x38b)[0x7f706e3a985b]
+/usr/local/lib/python3.10/dist-packages/llama_cpp/lib/libllama.so(llama_decode+0x10)[0x7f706e3aaea0]
+/lib/x86_64-linux-gnu/libffi.so.8(+0x7e2e)[0x7f709c0c6e2e]
+/lib/x86_64-linux-gnu/libffi.so.8(+0x4493)[0x7f709c0c3493]
+/usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so(+0xa5d7)[0x7f709be565d7]
+/usr/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so(+0x132e2)[0x7f709be5f2e2]
+/usr/bin/python3(_PyObject_MakeTpCall+0x25b)[0x558da42cf89b]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x60be)[0x558da42c95ce]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x807)[0x558da42c3d17]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x807)[0x558da42c3d17]
+/usr/bin/python3(+0x1a72a2)[0x558da42f52a2]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0xaa8)[0x558da42c3fb8]
+/usr/bin/python3(+0x228da5)[0x558da4376da5]
+/usr/bin/python3(+0x18b8e9)[0x558da42d98e9]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x6c0)[0x558da42c3bd0]
+/usr/bin/python3(+0x1986f1)[0x558da42e66f1]
+/usr/bin/python3(PyObject_Call+0x122)[0x558da42e7392]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x286b)[0x558da42c5d7b]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyObject_FastCallDictTstate+0x16d)[0x558da42ceb0d]
+/usr/bin/python3(_PyObject_Call_Prepend+0x5c)[0x558da42e384c]
+/usr/bin/python3(+0x29cde4)[0x558da43eade4]
+/usr/bin/python3(_PyObject_MakeTpCall+0x25b)[0x558da42cf89b]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x6a5b)[0x558da42c9f6b]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x286b)[0x558da42c5d7b]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x807)[0x558da42c3d17]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x286b)[0x558da42c5d7b]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x807)[0x558da42c3d17]
+/usr/bin/python3(_PyFunction_Vectorcall+0x7c)[0x558da42d968c]
+/usr/bin/python3(_PyEval_EvalFrameDefault+0x807)[0x558da42c3d17]
+/usr/bin/python3(+0x198951)[0x558da42e6951]
+/usr/bin/python3(+0x2ad22a)[0x558da43fb22a]
+/usr/bin/python3(+0x2a2a58)[0x558da43f0a58]
+/lib/x86_64-linux-gnu/libc.so.6(+0x94ac3)[0x7f709c3d3ac3]
+/lib/x86_64-linux-gnu/libc.so.6(+0x1268d0)[0x7f709c4658d0]
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4568.33it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+llama_context: n_ctx_seq (1024) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11671.70it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+llama_context: n_ctx_seq (1024) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+INFO:     Started server process [96145]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+INFO:     103.166.183.10:0 - "POST /chat HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96145]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 17257.66it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:50: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dim = embedder.get_sentence_embedding_dimension()
+✅ Vector DB đã sẵn sàng.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 14365.04it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+/www/wwwroot/easywms.io.vn/python_chatbot/main.py:50: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dim = embedder.get_sentence_embedding_dimension()
+INFO:     Started server process [96418]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+✅ Vector DB đã sẵn sàng.
+INFO:     103.166.183.10:0 - "POST /chat HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96418]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 14030.13it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+llama_context: n_ctx_seq (1024) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+✅ Vector DB đã sẵn sàng.
+⏳ Đang nạp LLM...
+✅ LLM sẵn sàng.
+⏳ Đang tải Embedding Model...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8880.09it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+llama_context: n_ctx_seq (1024) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+INFO:     Started server process [96610]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
