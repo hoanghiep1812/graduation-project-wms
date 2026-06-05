@@ -22,7 +22,7 @@ class FCMHelper
 
             $messaging = app('firebase.messaging');
 
-            
+            // 🚀 CHUẨN BỊ ĐẠN XUYÊN GIÁP (ÉP PHẢI KÊU CHUÔNG & RUNG)
             $message = CloudMessage::withTarget('token', $boss->fcm_token)
                 ->withNotification(Notification::create($title, $body))
                 ->withAndroidConfig(AndroidConfig::fromArray([

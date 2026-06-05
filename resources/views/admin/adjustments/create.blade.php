@@ -4,8 +4,10 @@
 
 @section('content')
     <div class="row">
+        <!-- Giới hạn độ rộng để form không bị bẹt ra quá mức trên màn hình PC -->
         <div class="col-xl-8 col-lg-10 mx-auto">
 
+            <!-- Alert báo lỗi chuẩn hóa -->
             @if(session('error'))
                 <div
                     class="alert alert-dismissible bg-light-danger border border-danger d-flex flex-column flex-sm-row p-5 mb-10">
@@ -24,6 +26,7 @@
                 </div>
             @endif
 
+            <!-- Bắt lỗi Validation -->
             @if ($errors->any())
                 <div
                     class="alert alert-dismissible bg-light-danger border border-danger d-flex flex-column flex-sm-row p-5 mb-10">
@@ -52,7 +55,7 @@
                         @csrf
                         <div class="mb-8">
                             <h4 class="text-gray-800 fw-bold mb-5 fs-5">1. Thông tin người kiểm đếm</h4>
-                            
+                            <!-- Sử dụng nền trung tính, tránh lạm dụng màu info quá gắt -->
                             <div class="bg-light border border-gray-300 border-dashed rounded p-5">
                                 <label class="required fs-6 fw-semibold mb-2">Họ & tên nhân viên đếm hàng</label>
                                 <input type="text" name="counter_name" class="form-control form-control-solid"
@@ -65,10 +68,11 @@
                             </div>
                         </div>
 
+                        <!-- Phần 2: Dữ liệu điều chỉnh -->
                         <div class="mb-5">
                             <h4 class="text-gray-800 fw-bold mb-5 fs-5">2. Dữ liệu chênh lệch</h4>
                             <div class="row g-5">
-                                
+                                <!-- Chọn Lô hàng -->
                                 <div class="col-12">
                                     <label class="required fs-6 fw-semibold mb-2">Xác định vị trí & Lô hàng cần điều
                                         chỉnh</label>
@@ -96,11 +100,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                
+
+                                <!-- Số đếm tay -->
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <label class="required fs-6 fw-semibold text-gray-800 mb-2">Số lượng đếm tay thực
                                         tế</label>
-                                    
+                                    <!-- Đưa input về giao diện bình thường, thêm đơn vị tính cho chuyên nghiệp -->
                                     <div class="position-relative">
                                         <input type="number" name="actual_quantity"
                                             class="form-control form-control-solid pe-12 fw-bold text-primary fs-5"
@@ -111,7 +116,7 @@
                                     </div>
                                 </div>
 
-                                
+                                <!-- Lý do -->
                                 <div class="col-md-6">
                                     <label class="required fs-6 fw-semibold mb-2">Lý do chênh lệch</label>
                                     <select name="reason" class="form-select form-select-solid" data-control="select2"
@@ -127,10 +132,10 @@
                             </div>
                         </div>
 
-                        
+                        <!-- Footer Action -->
                         <div class="d-flex justify-content-end pt-7 mt-10 border-top border-gray-200">
                             <a href="{{ route('admin.inventory.index') }}" class="btn btn-light fw-bold me-3">Hủy bỏ</a>
-                            
+                            <!-- Dùng màu Warning cho hành động nhạy cảm -->
                             <button type="submit" class="btn btn-warning fw-bold"
                                 onclick="return confirm('CẢNH BÁO: Tồn kho sẽ bị thay đổi vĩnh viễn và lưu vào Thẻ Kho. Bạn có chắc chắn với con số này?');">
                                 Xác Nhận Cập Nhật

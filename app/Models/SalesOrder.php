@@ -90,4 +90,9 @@ class SalesOrder extends Model
     {
         return $this->belongsTo(User::class, 'assigned_to');
     }
+
+    public function shippedUser()
+    {
+        return $this->belongsTo(User::class, 'shipped_by');
+    }
 }

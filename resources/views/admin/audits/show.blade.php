@@ -2,7 +2,8 @@
 @section('title', 'Chi tiết Kiểm Kê - ' . $audit->audit_code)
 
 @section('content')
-    
+
+    <!-- Alerts chuẩn hóa -->
     @if(session('success'))
         <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
             <i class="ki-duotone ki-check-circle fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span></i>
@@ -30,7 +31,7 @@
     @endif
 
     <div class="card card-flush border-0 shadow-sm">
-        
+        <!-- Header -->
         <div class="card-header align-items-center py-5 gap-2 gap-md-5 flex-wrap">
             <h3 class="card-title align-items-start flex-column m-0">
                 <span class="card-label fw-bold fs-3 mb-1 text-gray-800">Chi Tiết Phiếu Đếm Kho: {{ $audit->audit_code }}</span>                
@@ -47,11 +48,11 @@
         </div>
 
         <div class="card-body pt-5">
-            
+            <!-- Tách Form nhập liệu để dễ quản lý Action Button ở dưới -->
             <form id="form_audit_update" action="{{ route('admin.audits.update', $audit->id) }}" method="POST">
                 @csrf
                 <div class="table-responsive">
-                    
+                    <!-- Text-nowrap chống rớt dòng trên Mobile -->
                     <table class="table align-middle table-row-dashed table-row-gray-200 fs-6 gy-5 text-nowrap">
                         <thead>
                             <tr class="text-start text-gray-500 fw-bolder fs-7 text-uppercase gs-0 border-bottom border-gray-300">
@@ -70,7 +71,7 @@
                                     $diff = $hasCounted ? ($item->actual_quantity - $item->system_quantity) : 0;
                                 @endphp
                                 <tr>
-                                    
+                                    <!-- Sản phẩm -->
                                     <td class="ps-0">
                                         <div class="d-flex flex-column">
                                             <span class="text-gray-800 fw-bold fs-6 mb-1">{{ $item->inventory->product->name ?? 'N/A' }}</span>
@@ -78,7 +79,7 @@
                                         </div>
                                     </td>
                                     
-                                    
+                                    <!-- Vị trí -->
                                     <td>
                                         <div class="d-flex flex-column">
                                             <span class="badge badge-light-primary fw-bold px-2 py-1 mb-1 w-fit-content fs-8">Kệ: {{ $item->inventory->binLocation->code ?? 'N/A' }}</span>
@@ -86,15 +87,15 @@
                                         </div>
                                     </td>
                                     
-                                    
+                                    <!-- Tồn hệ thống -->
                                     <td class="text-center">
                                         <span class="fw-bolder text-gray-600 fs-5">{{ $item->system_quantity }}</span>
                                     </td>
                                     
-                                    
+                                    <!-- Nhập số thực tế -->
                                     <td class="text-center">
                                         @if($audit->status == 'pending')
-                                            
+                                            <!-- Ô nhập: Có màu nhấn nhẹ (primary), căn giữa -->
                                             <input type="number" name="actual_quantity[{{ $item->id }}]"
                                                 value="{{ $item->actual_quantity }}" 
                                                 class="form-control form-control-solid text-center fw-bolder text-primary w-100px mx-auto" 
@@ -106,7 +107,7 @@
                                         @endif
                                     </td>
 
-                                    
+                                    <!-- Cột Hiển thị chênh lệch (Cực kỳ giá trị cho nghiệp vụ) -->
                                     <td class="text-end pe-0">
                                         @if(!$hasCounted && $audit->status == 'pending')
                                             <span class="text-muted fs-8 fst-italic">Chưa nhập</span>
@@ -125,12 +126,12 @@
                 </div>
             </form>
 
-            
+            <!-- Actions Footer: Gom nút điều hướng và form Chốt sổ vào một hàng -->
             <div class="mt-10 border-top border-gray-200 pt-7">
                 @if($audit->status == 'pending')
                     <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-4">
                         
-                        
+                        <!-- Cụm thao tác lưu nháp (Nằm bên trái) -->
                         <div class="w-100 w-sm-auto text-start">
                             <button type="submit" form="form_audit_update" class="btn btn-primary fw-bold w-100 w-sm-auto">
                                <span class="path1"></span><span class="path2"></span>Lưu Nháp 
@@ -138,7 +139,7 @@
                             <div class="text-muted fs-8 mt-2 d-none d-sm-block">Có thể lưu nhiều lần trước khi Chốt.</div>
                         </div>
 
-                        
+                        <!-- Cụm chốt sổ (Nằm bên phải, dùng màu Danger cảnh báo) -->
                         <form action="{{ route('admin.audits.complete', $audit->id) }}" method="POST" class="w-100 w-sm-auto m-0">
                             @csrf
                             <button type="submit" class="btn btn-danger fw-bold w-100 w-sm-auto shadow-sm"
@@ -149,7 +150,7 @@
 
                     </div>
                 @else
-                    
+                    <!-- Khi đã hoàn tất, hiện dòng thông báo nhẹ nhàng thay vì các nút bấm -->
                     <div class="alert bg-light-success border border-success d-flex align-items-center p-5 m-0">
                         <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4"><span class="path1"></span><span class="path2"></span></i>
                         <div class="d-flex flex-column">

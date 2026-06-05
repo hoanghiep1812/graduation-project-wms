@@ -27,29 +27,32 @@ class LoginController extends Controller
             'username.required' => 'Vui lòng nhập Tên đăng nhập.',
             'password.required' => 'Vui lòng nhập Mật khẩu.',
         ]);
-        
+
+        // Tìm tài khoản
         $user = User::where('username', $request->username)->first();
-        
+
+        // Không tồn tại tài khoản
         if (!$user) {
             return back()->withErrors([
                 'username' => 'Tài khoản không tồn tại.',
             ])->onlyInput('username');
         }
 
-        
+        // Tài khoản bị khóa
         if (!$user->is_active) {
             return back()->withErrors([
                 'username' => 'Tài khoản đã bị khóa.',
             ])->onlyInput('username');
         }
 
-        
+        // Sai mật khẩu
         if (!Hash::check($request->password, $user->password)) {
             return back()->withErrors([
                 'password' => 'Mật khẩu không chính xác.',
             ])->onlyInput('username');
         }
-        
+
+        // Đăng nhập
         Auth::login($user);
 
         $request->session()->regenerate();

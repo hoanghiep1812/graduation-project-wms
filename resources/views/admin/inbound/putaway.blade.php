@@ -3,7 +3,7 @@
 @section('title', 'Thực thi Cất hàng - ' . $order->po_number)
 
 @section('content')
-    
+    <!-- Thông báo lỗi (Đồng bộ với thông báo thành công ở trang trước) -->
     @if(session('error'))
         <div class="alert alert-dismissible bg-light-danger border border-danger d-flex flex-column flex-sm-row p-5 mb-10">
             <i class="ki-duotone ki-shield-cross fs-2hx text-danger me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
@@ -81,9 +81,9 @@
                                                 <span class="badge badge-light-primary fs-6 fw-bold px-3 py-2">{{ $task['quantity'] }}</span>
                                             </td>
                                             
-                                            
+                                            <!-- Cột Nhập liệu (Bin & HSD) -->
                                             <td class="align-top pt-6">
-                                                
+                                                <!-- Badge phân loại: Đã sửa lại màu sắc cho chuẩn logic -->
                                                 <div class="mb-3">
                                                     @if($task['category'] == 'NEW_PRODUCT')
                                                         <span class="badge badge-light-info fs-8 px-2 py-1">SP Mới (Tự chọn kệ)</span>
@@ -134,7 +134,7 @@
                                                     @endforeach
                                                 </select>      
 
-                                                
+                                                <!-- Text gợi ý WMS -->
                                                 <div class="mb-4">
                                                     <span class="text-muted fs-8">
                                                         <i class="ki-duotone ki-information-5 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> 

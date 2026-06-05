@@ -61,15 +61,17 @@ class ReslottingService
                     $needsReslotting = false;
                     $impactText = "";
 
-                    if (($category === 'FAST_MOVING' || $isSurging) && $currentDistance > 10) {
-                        $needsReslotting = true;
-                        $impactText = "Giảm thời gian picking";
-                    } elseif ($category === 'SLOW_MOVING' && $currentDistance <= 10) {
-                        $needsReslotting = true;
-                        $impactText = "Đẩy ra xa để nhường chỗ cho hàng nhanh";
-                    } else {
-                        continue;
-                    }
+                    $thresholdDistance = 30; 
+
+					if (($category === 'FAST_MOVING' || $isSurging) && $currentDistance >= $thresholdDistance) {
+					    $needsReslotting = true;
+					    $impactText = "Giảm thời gian picking";
+					} elseif ($category === 'SLOW_MOVING' && $currentDistance < $thresholdDistance) {
+					    $needsReslotting = true;
+					    $impactText = "Đẩy ra xa để nhường chỗ cho hàng nhanh";
+					} else {
+					    continue;
+					}
 
                     $bestBin = null;
                     $highestScore = -999999;

@@ -81,28 +81,33 @@
                                 </td>
                                 
                                 <td>
-                                    @if($inv->batch)
-                                        <div class="text-gray-800 fw-bold fs-7 mb-1">{{ $inv->batch->batch_number }}</div>
-                                        @php
-                                            $expiryDate = \Carbon\Carbon::parse($inv->batch->expiry_date);
-                                            $daysLeft = now()->startOfDay()->diffInDays($expiryDate->startOfDay(), false);
-                                        @endphp
-
-                                        @if($daysLeft < 0)
-                                            <span class="badge badge-light-danger fs-8 px-2 py-1">
-                                                🔴 Đã quá hạn
-                                            </span>
-                                        @elseif($daysLeft <= 30)
-                                            <span class="badge badge-light-warning fs-8 px-2 py-1 text-dark">
-                                                ⚠️ Còn {{ intval($daysLeft) }} ngày
-                                            </span>
-                                        @else
-                                            <span class="text-muted fs-8">HSD: {{ $expiryDate->format('d/m/Y') }}</span>
-                                        @endif
-                                    @else
-                                        <span class="text-muted fs-8">Không quản lý Lô</span>
-                                    @endif
-                                </td>
+								    @if($inv->batch)
+								        <div class="text-gray-800 fw-bold fs-7 mb-1">{{ $inv->batch->batch_number }}</div>
+								        
+								        @if($inv->batch->expiry_date)
+								            @php
+								                $expiryDate = \Carbon\Carbon::parse($inv->batch->expiry_date);
+								                $daysLeft = now()->startOfDay()->diffInDays($expiryDate->startOfDay(), false);
+								            @endphp
+								
+								            @if($daysLeft < 0)
+								                <span class="badge badge-light-danger fs-8 px-2 py-1">
+								                    🔴 Đã quá hạn
+								                </span>
+								            @elseif($daysLeft <= 30)
+								                <span class="badge badge-light-warning fs-8 px-2 py-1 text-dark">
+								                    ⚠️ Còn {{ intval($daysLeft) }} ngày
+								                </span>
+								            @else
+								                <span class="text-muted fs-8">HSD: {{ $expiryDate->format('d/m/Y') }}</span>
+								            @endif
+								        @else
+								            <span class="text-muted fs-8">Không có HSD</span>
+								        @endif
+								    @else
+								        <span class="text-muted fs-8">Không quản lý Lô</span>
+								    @endif
+								</td>
                                 
                                 <td class="text-end fw-bold text-gray-800 fs-6">{{ $inv->on_hand_quantity }}</td>
                                 <td class="text-end fw-bold text-warning fs-6">{{ $inv->reserved_quantity ?? 0 }}</td>

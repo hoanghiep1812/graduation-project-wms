@@ -138,7 +138,7 @@ class ReslottingController extends Controller
     public function generate(ReslottingService $reslottingService)
     {
         try {
-            $count = $reslottingService->generateRecommendations(4);
+            $count = $reslottingService->generateRecommendations(1);
 
             if ($count > 0) {
                 $currentUser = auth()->user();

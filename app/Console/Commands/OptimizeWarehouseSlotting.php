@@ -31,7 +31,7 @@ class OptimizeWarehouseSlotting extends Command
         $this->info('Bắt đầu quét kho...');
 
         try {
-            $warehouseId = 1; 
+            $warehouseId = 4; 
             $count = $reslottingService->generateRecommendations($warehouseId);
 
             $this->info("Quét hoàn tất! Đã tạo {$count} đề xuất mới.");

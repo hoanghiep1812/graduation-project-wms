@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xl-9 mx-auto">
 
-            
+            <!-- Thông báo lỗi chuẩn Enterprise -->
             @if ($errors->any())
                 <div
                     class="alert alert-dismissible bg-light-danger border border-danger d-flex flex-column flex-sm-row p-5 mb-10">
@@ -40,7 +40,7 @@
                     <form action="{{ route('admin.sales_orders.store') }}" method="POST">
                         @csrf
 
-                        
+                        <!-- Phần 1: Thông tin chung -->
                         <div class="mb-8">
                             <h4 class="text-gray-800 fw-bold mb-5 fs-5">1. Thông tin chứng từ</h4>
                             <div class="row g-5">
@@ -67,12 +67,12 @@
 
                         <div class="separator separator-dashed border-gray-300 my-8"></div>
 
-                        
+                        <!-- Phần 2: Danh sách hàng xuất -->
                         <div class="mb-5">
                             <h4 class="text-gray-800 fw-bold mb-5 fs-5">2. Chi tiết hàng xuất</h4>
 
                             <div class="bg-light border border-gray-300 border-dashed rounded p-5">
-                                
+                                <!-- Tiêu đề cột (Ẩn trên Mobile, Hiện trên Desktop) -->
                                 <div class="row mb-3 d-none d-md-flex">
                                     <div class="col-md-7"><label class="fs-7 fw-bold text-muted text-uppercase">Sản Phẩm
                                             (SKU)</label></div>
@@ -81,14 +81,14 @@
                                     <div class="col-md-1"></div>
                                 </div>
 
-                                
+                                <!-- Container chứa các dòng Line Items -->
                                 <div id="items-container">
                                     <div
                                         class="row mb-4 item-row align-items-center bg-body bg-md-transparent p-4 p-md-0 rounded shadow-sm shadow-md-none border border-gray-200 border-md-0">
 
-                                        
+                                        <!-- Cột Sản phẩm -->
                                         <div class="col-md-7 mb-3 mb-md-0">
-                                            
+                                            <!-- Label chỉ hiện trên điện thoại -->
                                             <label class="d-md-none required fs-7 fw-bold text-muted mb-2">Sản Phẩm
                                                 (SKU)</label>
                                             <select name="items[0][product_id]"
@@ -103,9 +103,9 @@
                                             </select>
                                         </div>
 
-                                        
+                                        <!-- Cột Số lượng -->
                                         <div class="col-md-4 mb-4 mb-md-0">
-                                            
+                                            <!-- Label chỉ hiện trên điện thoại -->
                                             <label class="d-md-none required fs-7 fw-bold text-muted mb-2">Số lượng
                                                 xuất</label>
                                             <div class="position-relative">
@@ -115,7 +115,7 @@
                                             </div>
                                         </div>
 
-                                        
+                                        <!-- Nút xóa -->
                                         <div class="col-md-1 text-end">
                                             <button type="button"
                                                 class="btn btn-light-danger remove-item w-100 w-md-auto p-md-3"
@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
 
-                                
+                                <!-- Nút thêm dòng -->
                                 <div class="mt-4">
                                     <button type="button" id="add-item"
                                         class="btn btn-sm btn-light-primary fw-bold w-100 w-md-auto">
@@ -138,7 +138,7 @@
                             </div>
                         </div>
 
-                        
+                        <!-- Phần Action -->
                         <div class="d-flex justify-content-end pt-7 mt-10 border-top border-gray-200">
                             <a href="{{ route('admin.sales_orders.index') }}" class="btn btn-light fw-bold me-3">Hủy bỏ</a>
                             <button type="submit" class="btn btn-primary fw-bold">

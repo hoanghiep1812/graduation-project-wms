@@ -16,7 +16,7 @@ class InventoryAuditItem extends Model
         return $this->belongsTo(InventoryAudit::class, 'inventory_audit_id');
     }
 
-    
+    // Trỏ về Tồn kho (Để lấy tên SP, Vị trí kệ)
     public function inventory()
     {
         return $this->belongsTo(Inventory::class, 'inventory_id');

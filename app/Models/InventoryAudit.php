@@ -15,7 +15,7 @@ class InventoryAudit extends Model
         return $this->hasMany(InventoryAuditItem::class);
     }
 
-    
+    // Lấy thông tin người tạo phiếu
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');

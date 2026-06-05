@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\DB;
 class InboundController extends Controller
 {
     public function index(Request $request)
-    {
-        $query = PurchaseOrder::query();
-
+    {        
+        $query = PurchaseOrder::with(['assignedUser', 'creator']);
         
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
@@ -31,12 +30,21 @@ class InboundController extends Controller
                     ->orWhere('supplier_name', 'like', "%$keyword%");
             });
         }
+                
+        if ($request->filled('staff_id')) {
+            $staffId = $request->staff_id;
+            $query->where(function ($q) use ($staffId) {
+                $q->where('assigned_to', $staffId)     
+                  ->orWhere('created_by', $staffId);  
+            });
+        }
 
         $orders = $query->orderBy('created_at', 'desc')->paginate(10);
-
         $orders->appends($request->all());
+        
+        $staffs = \App\Models\User::all();
 
-        return view('admin.inbound.index', compact('orders'));
+        return view('admin.inbound.index', compact('orders', 'staffs'));
     }
 
     public function create()
@@ -67,6 +75,7 @@ class InboundController extends Controller
             $order = PurchaseOrder::create([
                 'po_number'     => $request->po_number,
                 'supplier_id'   => $supplier->id,
+                'warehouse_id'  => 1,
                 'supplier_name' => $supplier->name,
                 'status'        => PurchaseOrder::STATUS_DRAFT,
                 'expected_date' => now(),

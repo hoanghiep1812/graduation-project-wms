@@ -4,7 +4,7 @@
 
 @section('content')
 
-    
+    <!-- Alerts chuẩn Enterprise -->
     @if(session('success'))
         <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
             <i class="ki-duotone ki-check-circle fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span
@@ -40,7 +40,7 @@
     @endif
 
     <div class="card card-flush shadow-sm border-0">
-        
+        <!-- Card Header: Gom Tiêu đề, Search và Nút bấm vào chung 1 hàng (Responsive) -->
         <div class="card-header align-items-center py-5 gap-2 gap-md-5 flex-wrap border-bottom border-gray-200">
 
             <div class="card-title flex-column align-items-start m-0 w-100 w-md-auto">
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        
+        <!-- Card Body -->
         <div class="card-body pt-0">
             <div class="table-responsive">
                 <table class="table align-middle table-row-dashed fs-6 gy-5 border-bottom text-nowrap"
@@ -163,7 +163,7 @@
                 </table>
             </div>
 
-            
+            <!-- Phân trang -->
             @if(method_exists($suppliers, 'links'))
                 <div class="d-flex flex-stack flex-wrap mt-5">
                     <div class="fs-6 fw-semibold text-gray-500 mb-2 mb-md-0">
@@ -179,7 +179,7 @@
         </div>
     </div>
 
-    
+    <!-- MODAL THÊM MỚI (Đặt hoàn toàn bên ngoài card) -->
     <div class="modal fade" id="modal_add_supplier" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content shadow-sm">
@@ -232,7 +232,7 @@
         </div>
     </div>
 
-    
+    <!-- MODAL SỬA (Render ra ngoài bảng) -->
     @foreach($suppliers as $supplier)
         <div class="modal fade" id="modal_edit_supplier_{{ $supplier->id }}" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered mw-650px">

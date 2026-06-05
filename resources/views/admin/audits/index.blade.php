@@ -4,7 +4,7 @@
 
 @section('content')
 
-    
+    <!-- Alerts chuẩn Enterprise -->
     @if(session('success'))
         <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
             <i class="ki-duotone ki-check-circle fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span
@@ -36,7 +36,7 @@
     @endif
 
     <div class="card card-flush shadow-sm border-0">
-        
+        <!-- Card Header: Tối ưu Responsive -->
         <div class="card-header align-items-center py-5 gap-2 gap-md-5 flex-wrap">
             <div class="card-title w-100 w-md-auto m-0">
                 <h3 class="card-title align-items-start flex-column m-0">
@@ -44,7 +44,8 @@
                     <span class="text-muted mt-1 fw-semibold fs-7">Quản lý và đối soát tồn kho định kỳ</span>
                 </h3>
             </div>
-            
+
+            <!-- Nút Action: Tràn ngang trên Mobile -->
             <div class="card-toolbar flex-row-fluid justify-content-end gap-5 w-100 w-md-auto">
                 <form action="{{ route('admin.audits.store') }}" method="POST" class="w-100 w-md-auto m-0">
                     @csrf
@@ -58,7 +59,7 @@
 
         <div class="card-body pt-0">
             <div class="table-responsive">
-                
+                <!-- Thêm text-nowrap chống rớt dòng trên Mobile -->
                 <table class="table align-middle table-row-dashed table-row-gray-200 fs-6 gy-5 border-bottom text-nowrap">
                     <thead>
                         <tr
@@ -73,7 +74,7 @@
                     <tbody class="fw-semibold text-gray-600">
                         @forelse($audits as $audit)
                             <tr>
-                                
+                                <!-- Mã phiếu: In đậm, màu tối, có link chuyển màu xanh -->
                                 <td class="ps-0">
                                     <a href="{{ route('admin.audits.show', $audit->id) }}"
                                         class="text-gray-800 text-hover-primary fw-bolder fs-6 d-block mb-1">
@@ -87,7 +88,7 @@
 
                                 <td class="text-muted">{{ $audit->created_at->format('d/m/Y H:i') }}</td>
 
-                                
+                                <!-- Trạng thái: Dùng badge-light thay vì solid -->
                                 <td class="text-center">
                                     @if($audit->status == 'completed')
                                         <span class="badge badge-light-success fw-bold px-3 py-2 fs-8">Đã Chốt Sổ</span>
@@ -96,7 +97,7 @@
                                     @endif
                                 </td>
 
-                                
+                                <!-- Hành động -->
                                 <td class="text-end pe-0">
                                     @if($audit->status == 'completed')
                                         <a href="{{ route('admin.audits.show', $audit->id) }}"
@@ -114,7 +115,7 @@
                                 </td>
                             </tr>
                         @empty
-                            
+                            <!-- Empty State chuẩn -->
                             <tr>
                                 <td colspan="5" class="text-center py-10">
                                     <div class="d-flex flex-column align-items-center">

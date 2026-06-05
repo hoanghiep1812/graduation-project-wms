@@ -3,7 +3,7 @@
 @section('title', 'Đề Xuất Dời Kệ')
 
 @section('content')
-    
+    <!-- Alerts chuẩn Enterprise -->
     @if(session('success'))
         <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
             <i class="ki-duotone ki-check-circle fs-2hx text-success me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span></i>
@@ -40,7 +40,7 @@
             <div class="card-toolbar flex-row-fluid justify-content-end gap-5 w-100 w-md-auto">
                 <form action="{{ route('admin.reslotting.generate') }}" method="POST" class="w-100 w-md-auto m-0">
                     @csrf
-                    
+                    <!-- Thêm icon CPU và đổi hiệu ứng nút để ra dáng tính năng AI -->
                     <button type="submit" class="btn btn-primary fw-bold w-100" onclick="return confirm('Hệ thống sẽ chạy thuật toán phân tích toàn bộ kho. Bạn có chắc chắn?');">
                         <i class="ki-duotone ki-cpu fs-2"><span class="path1"></span><span class="path2"></span></i> Kích Hoạt AI Quét Kho
                     </button>
@@ -50,7 +50,7 @@
 
         <div class="card-body pt-0">
             <div class="table-responsive">
-                
+                <!-- Thêm text-nowrap chống rớt dòng trên Mobile -->
                 <table class="table align-middle table-row-dashed table-row-gray-200 fs-6 gy-5 border-bottom text-nowrap">
                     <thead>
                         <tr class="text-start text-gray-500 fw-bolder fs-7 text-uppercase gs-0 border-bottom border-gray-300">
@@ -63,7 +63,7 @@
                     <tbody class="text-gray-700 fw-semibold">
                         @forelse($recommendations as $task)
                             <tr>
-                                
+                                <!-- Sản phẩm -->
                                 <td class="ps-0">
                                     <div class="d-flex flex-column">
                                         <span class="text-gray-800 fw-bold fs-6 mb-1">{{ $task->product->name ?? 'N/A' }}</span>
@@ -71,7 +71,7 @@
                                     </div>
                                 </td>
                                 
-                                
+                                <!-- Lý do -->
                                 <td>
                                     @php
                                         $aiReason = json_decode($task->reason, true);
@@ -79,7 +79,7 @@
 
                                     @if(is_array($aiReason))
                                         <div class="d-flex flex-column gap-2">
-                                            
+                                            <!-- Đồng bộ màu Badge phân hạng ABC -->
                                             <div>
                                                 @if($aiReason['category'] == 'SURGE_DEMAND')
                                                     <span class="badge badge-light-danger fw-bold fs-8 px-2 py-1"><i class="ki-duotone ki-graph-up fs-8 text-danger me-1"><span class="path1"></span><span class="path2"></span></i> Hot Trend</span>
@@ -114,22 +114,22 @@
                                     @endif
                                 </td>
                                 
-                                
+                                <!-- Lộ trình -->
                                 <td class="text-center">
-                                    
+                                    <!-- Flex đổi hướng trên Mobile (flex-column) và Desktop (flex-md-row) -->
                                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-2">
-                                        
+                                        <!-- Ô xuất phát: Dùng màu trung tính bg-light thay vì bg-light-danger để tránh hiểu lầm là lỗi -->
                                         <div class="border border-gray-300 border-dashed rounded py-2 px-3 text-center bg-light w-100 w-md-auto">
                                             <div class="text-gray-500 fs-8">Đang ở</div>
                                             <div class="fw-bolder text-gray-800 fs-6">{{ $task->currentBin->code ?? 'N/A' }}</div>
                                             <div class="text-muted fs-8">{{ $task->currentBin->zone->code ?? '' }}</div>
                                         </div>
 
-                                        
+                                        <!-- Mũi tên đổi hướng: Ngang trên PC, Dọc trên Mobile -->
                                         <i class="ki-duotone ki-arrow-right fs-2 text-muted d-none d-md-block"><span class="path1"></span><span class="path2"></span></i>
                                         <i class="ki-duotone ki-arrow-down fs-2 text-muted d-block d-md-none"><span class="path1"></span><span class="path2"></span></i>
 
-                                        
+                                        <!-- Ô đích đến -->
                                         <div class="border border-success border-dashed rounded py-2 px-3 text-center bg-light-success w-100 w-md-auto">
                                             <div class="text-success fs-8">Chuyển tới</div>
                                             <div class="fw-bolder text-success fs-6">{{ $task->recommendedBin->code ?? 'N/A' }}</div>
@@ -138,7 +138,7 @@
                                     </div>
                                 </td>
                                 
-                                
+                                <!-- Hành động -->
                                 <td class="text-end pe-0">
                                     @if(auth()->user()->isAdmin())
                                         <div class="d-flex justify-content-end align-items-center gap-2">
@@ -177,7 +177,7 @@
                 </table>
             </div>
 
-            
+            <!-- Phân trang chuẩn -->
             <div class="d-flex flex-stack flex-wrap mt-5">
                 <div class="fs-6 fw-semibold text-gray-500 mb-2 mb-md-0">
                     Hiển thị từ {{ $recommendations->firstItem() ?? 0 }} đến {{ $recommendations->lastItem() ?? 0 }} trên tổng số {{ $recommendations->total() ?? 0 }}

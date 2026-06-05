@@ -113,16 +113,20 @@ class MockDataSeeder extends Seeder
             // 6. GIẢ LẬP GIAO DỊCH NHẬP KHO (PURCHASE ORDERS) -> Sinh StockMovement
             for ($i = 1; $i <= 60; $i++) {
                 $supplier = $faker->randomElement($suppliers);
-                $po = PurchaseOrder::create([
-                    'po_number' => 'PO-' . now()->format('Ymd') . '-' . str_pad($i, 4, '0', STR_PAD_LEFT),
-                    'supplier_id' => $supplier->id,
-                    'warehouse_id' => $warehouse->id,
-                    'supplier_name' => $supplier->name,
-                    'status' => 'completed', // Đã hoàn thành nhập kho
-                    'created_by' => $admin->id,
-                    'expected_date' => $faker->dateTimeBetween('-60 days', '-10 days'),
-                    'completed_at' => $faker->dateTimeBetween('-60 days', '-10 days'),
-                ]);
+                $randomDate = $faker->dateTimeBetween('-60 days', '-10 days'); // Lấy chung 1 mốc thời gian để logic
+
+				$po = PurchaseOrder::create([
+				    'po_number'     => 'PO-' . now()->format('Ymd') . '-' . str_pad($i, 4, '0', STR_PAD_LEFT),
+				    'supplier_id'   => $supplier->id,
+				    'warehouse_id'  => $warehouse->id,
+				    'supplier_name' => $supplier->name,
+				    'status'        => 'completed', 
+				    'created_by'    => $admin->id,
+				    'expected_date' => $randomDate,
+				    'approved_by'   => $admin->id,      
+				    'approved_at'   => $randomDate,       
+				    'completed_at'  => $randomDate,
+				]);
 
                 // Mỗi PO có 2-5 mặt hàng
                 $numItems = $faker->numberBetween(2, 5);
@@ -142,13 +146,26 @@ class MockDataSeeder extends Seeder
                         'received_quantity' => $qty,
                     ]);
 
-                    // Cộng tồn kho
-                    $inventory = Inventory::firstOrCreate(
-                        ['product_id' => $prod->id, 'warehouse_id' => $warehouse->id, 'bin_location_id' => $bin->id],
-                        ['on_hand_quantity' => 0, 'reserved_quantity' => 0]
-                    );
-                    $balanceAfter = $inventory->on_hand_quantity + $qty;
-                    $inventory->update(['on_hand_quantity' => $balanceAfter]);
+                    $batch = \App\Models\Batch::create([
+					    'batch_number' => 'LOT-' . $po->po_number . '-' . $prod->id,
+					    'product_id'   => $prod->id,
+					    'expiry_date'  => $prod->has_expiry ? \Carbon\Carbon::parse($po->completed_at)->addMonths($prod->expiry_duration) : null,
+					    'created_at'   => $po->completed_at,
+					    'updated_at'   => $po->completed_at,
+					]);
+					
+					$inventory = Inventory::firstOrCreate(
+					    [
+					        'product_id'      => $prod->id, 
+					        'warehouse_id'    => $warehouse->id, 
+					        'bin_location_id' => $bin->id,
+					        'batch_id'        => $batch->id 
+					    ],
+					    ['on_hand_quantity' => 0, 'reserved_quantity' => 0]
+					);
+					
+					$balanceAfter = $inventory->on_hand_quantity + $qty;
+					$inventory->update(['on_hand_quantity' => $balanceAfter]);
 
                     // Tăng sức chứa kệ
                     $bin->increment('current_capacity', $qty);
@@ -174,15 +191,17 @@ class MockDataSeeder extends Seeder
                 $soDate = $faker->dateTimeBetween('-10 days', 'now');
                 
                 $so = SalesOrder::create([
-                    'so_number' => 'SO-' . now()->format('Ymd') . '-' . str_pad($i, 4, '0', STR_PAD_LEFT),
-                    'partner_id' => $partner->id,
-                    'warehouse_id' => $warehouse->id,
-                    'customer_name' => $partner->name,
-                    'status' => 'shipped',
-                    'created_by' => $admin->id,
-                    'confirmed_at' => $soDate,
-                    'shipped_at' => $soDate,
-                ]);
+				    'so_number'     => 'SO-' . now()->format('Ymd') . '-' . str_pad($i, 4, '0', STR_PAD_LEFT),
+				    'partner_id'    => $partner->id,
+				    'warehouse_id'  => $warehouse->id,
+				    'customer_name' => $partner->name,
+				    'status'        => 'shipped',
+				    'created_by'    => $admin->id,
+				    'confirmed_by'  => $admin->id, 
+				    'shipped_by'    => $admin->id,
+				    'confirmed_at'  => $soDate,
+				    'shipped_at'    => $soDate,
+				]);
 
                 $numItems = $faker->numberBetween(1, 3);
                 $soProducts = $faker->randomElements($products, $numItems);

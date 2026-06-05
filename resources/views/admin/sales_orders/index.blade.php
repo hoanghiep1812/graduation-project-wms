@@ -3,7 +3,6 @@
 @section('title', 'Quản lý Xuất Kho (Outbound)')
 
 @section('content')
-    
     @if(session('error'))
         <div class="alert alert-dismissible bg-light-danger border border-danger d-flex flex-column flex-sm-row p-5 mb-10">
             <i class="ki-duotone ki-shield-cross fs-2hx text-danger me-4 mb-5 mb-sm-0"><span class="path1"></span><span
@@ -34,42 +33,51 @@
         </div>
     @endif
 
-    <div class="card card-flush">
-        
+    <div class="card card-flush shadow-sm">
         <div class="card-header align-items-center py-5 gap-2 gap-md-5 flex-wrap">
-            
             <div class="card-title w-100 w-md-auto m-0">
-                <form method="GET" action="{{ route('admin.sales_orders.index') }}" class="w-100">
-                    <div class="d-flex align-items-center position-relative my-1 w-100">
-                        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4 text-gray-500"><span
+                <form method="GET" action="{{ route('admin.sales_orders.index') }}" class="d-flex flex-column flex-md-row gap-3 w-100">
+                    
+                    <div class="position-relative w-100 w-md-250px">
+                        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4 top-50 translate-middle-y text-gray-500"><span
                                 class="path1"></span><span class="path2"></span></i>
                         <input type="text" name="keyword" value="{{ request('keyword') }}"
-                            class="form-control form-control-solid w-100 w-md-250px ps-12" placeholder="Tìm kiếm..." />
+                            class="form-control form-control-solid w-100 ps-12" placeholder="Tìm mã SO, Tên KH..." />
                     </div>
+
+                    <div class="w-100 w-md-200px">
+                        <select name="staff_id" class="form-select form-select-solid" data-control="select2" 
+                                data-placeholder="Lọc theo nhân viên" onchange="this.form.submit()">
+                            <option value="">-- Tất cả nhân viên --</option>
+                            @if(isset($staffs))
+                                @foreach($staffs as $staff)
+                                    <option value="{{ $staff->id }}" {{ request('staff_id') == $staff->id ? 'selected' : '' }}>
+                                        {{ $staff->name }}
+                                    </option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
                 </form>
             </div>
 
-            
             <div class="card-toolbar flex-row-fluid justify-content-end gap-5 w-100 w-md-auto">
-                <a href="{{ route('admin.sales_orders.create') }}" class="btn btn-primary fw-bold w-100 w-md-auto">
-                    Tạo Phiếu Xuất
+                <a href="{{ route('admin.sales_orders.create') }}" class="btn btn-primary fw-bold w-100 w-md-auto shadow-sm">
+                    <i class="ki-duotone ki-plus fs-2"></i> Tạo Phiếu Xuất
                 </a>
             </div>
         </div>
 
-        
         <div class="card-body pt-0">
-            
             <div class="table-responsive">
-                
                 <table class="table align-middle table-row-dashed table-row-gray-200 fs-6 gy-4 text-nowrap">
                     <thead>
-                        <tr
-                            class="text-start text-gray-500 fw-bolder fs-7 text-uppercase gs-0 border-bottom border-gray-300">
+                        <tr class="text-start text-gray-500 fw-bolder fs-7 text-uppercase gs-0 border-bottom border-gray-300">
                             <th class="w-10px pe-2">#</th>
                             <th class="min-w-125px">Mã SO</th>
                             <th class="min-w-200px">Khách Hàng</th>
-                            <th class="min-w-125px text-center">Trạng Thái</th>
+                            <th class="min-w-150px">Người Phụ Trách</th> <th class="min-w-125px text-center">Trạng Thái</th>
                             <th class="min-w-125px text-end">Ngày Tạo</th>
                             <th class="text-end min-w-150px">Hành Động</th>
                         </tr>
@@ -84,15 +92,34 @@
                                 </td>
 
                                 <td>
-                                    
-                                    <span class="d-inline-block text-truncate" style="max-width: 200px;">
+                                    <span class="d-inline-block text-truncate" style="max-width: 200px;" title="{{ $order->customer_name }}">
                                         {{ $order->customer_name }}
                                     </span>
                                 </td>
 
+                                <td>
+                                    @if($order->status == \App\Models\SalesOrder::STATUS_SHIPPED)                                       
+                                        <div class="d-flex align-items-center">
+                                            <i class="ki-duotone ki-user fs-5 me-2 text-success"><span class="path1"></span><span class="path2"></span></i>
+                                            <span class="badge badge-light-success fs-8 fw-bold" title="Người xuất kho">
+                                                {{ $order->shippedUser->name ?? ($order->creator->name ?? 'Admin') }}
+                                            </span>
+                                        </div>
+                                    @elseif($order->assignedUser)                                        
+                                        <div class="d-flex align-items-center">
+                                            <i class="ki-duotone ki-user fs-5 me-2 text-info"><span class="path1"></span><span class="path2"></span></i>
+                                            <span class="badge badge-light-info fs-8 fw-bold" title="Đang phụ trách">
+                                                {{ $order->assignedUser->name }}
+                                            </span>
+                                        </div>
+                                    @else                                        
+                                        <span class="badge badge-light-secondary fs-8 text-muted">Chưa ai nhận</span>
+                                    @endif
+                                </td>
+
                                 <td class="text-center">
-                                    <span class="badge {{ $order->status_meta['class'] }} fs-8 fw-bold px-3 py-2">
-                                        {{ $order->status_meta['label'] }}
+                                    <span class="badge {{ $order->status_meta['class'] ?? 'badge-light' }} fs-8 fw-bold px-3 py-2">
+                                        {{ $order->status_meta['label'] ?? strtoupper($order->status) }}
                                     </span>
                                 </td>
 
@@ -104,43 +131,37 @@
                                         {{-- LOCK --}}
                                         @if($order->isLockedByOther())
                                             <span class="badge badge-light-secondary fs-8 px-3 py-2 text-muted">
-                                                Đang khóa
+                                                <i class="ki-duotone ki-lock fs-6 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Đang khóa
                                             </span>
-
                                         @else
 
                                             {{-- DRAFT --}}
                                             @if($order->status == \App\Models\SalesOrder::STATUS_DRAFT)
-                                                <form action="{{ route('admin.sales_orders.start_picking', $order->id) }}"
-                                                    method="POST">
+                                                <form action="{{ route('admin.sales_orders.start_picking', $order->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-sm btn-light-primary fw-bold">
                                                         Lấy Hàng
                                                     </button>
                                                 </form>
 
-                                                {{-- PICKING --}}
+                                            {{-- PICKING --}}
                                             @elseif($order->status == \App\Models\SalesOrder::STATUS_PICKING)
-                                                <a href="{{ route('admin.sales_orders.picking_route', $order->id) }}"
-                                                    class="btn btn-sm btn-light-warning fw-bold">
+                                                <a href="{{ route('admin.sales_orders.picking_route', $order->id) }}" class="btn btn-sm btn-light-warning fw-bold">
                                                     Tiếp Tục
                                                 </a>
 
-                                                {{-- PICKED --}}
+                                            {{-- PICKED --}}
                                             @elseif($order->status == \App\Models\SalesOrder::STATUS_PICKED)
-                                                <form action="{{ route('admin.sales_orders.confirm_shipment', $order->id) }}"
-                                                    method="POST">
+                                                <form action="{{ route('admin.sales_orders.confirm_shipment', $order->id) }}" method="POST">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-sm btn-light-success fw-bold"
-                                                        onclick="return confirm('Xác nhận xuất kho?');">
+                                                    <button type="submit" class="btn btn-sm btn-light-success fw-bold" onclick="return confirm('Xác nhận xuất kho?');">
                                                         Xuất Kho
                                                     </button>
                                                 </form>
 
-                                                {{-- SHIPPED --}}
+                                            {{-- SHIPPED --}}
                                             @elseif($order->status == \App\Models\SalesOrder::STATUS_SHIPPED)
-                                                <a href="{{ route('admin.sales_orders.export_pdf', $order->id) }}" target="_blank"
-                                                    class="btn btn-sm btn-light-info fw-bold">
+                                                <a href="{{ route('admin.sales_orders.export_pdf', $order->id) }}" target="_blank" class="btn btn-sm btn-light-info fw-bold">
                                                     In Phiếu
                                                 </a>
 
@@ -149,17 +170,11 @@
                                             @endif
 
                                             {{-- DELETE --}}
-                                            @if(
-                                                    in_array($order->status, [
-                                                        \App\Models\SalesOrder::STATUS_DRAFT,
-                                                        \App\Models\SalesOrder::STATUS_PICKING
-                                                    ])
-                                                )
+                                            @if(in_array($order->status, [\App\Models\SalesOrder::STATUS_DRAFT, \App\Models\SalesOrder::STATUS_PICKING]))
                                                 <form action="{{ route('admin.sales_orders.destroy', $order->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-icon btn-light-danger"
-                                                        onclick="return confirm('Bạn có chắc chắn muốn hủy?');">
+                                                    <button type="submit" class="btn btn-sm btn-icon btn-light-danger" onclick="return confirm('Bạn có chắc chắn muốn hủy?');">
                                                         <i class="ki-duotone ki-trash fs-5"></i>
                                                     </button>
                                                 </form>
@@ -172,7 +187,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center py-10">
+                                <td colspan="7" class="text-center py-10">
                                     <div class="d-flex flex-column align-items-center">
                                         <i class="ki-duotone ki-file-deleted fs-5x text-gray-400 mb-3"><span
                                                 class="path1"></span><span class="path2"></span><span class="path3"></span></i>
@@ -185,7 +200,6 @@
                 </table>
             </div>
 
-            
             <div class="d-flex flex-stack flex-wrap mt-5">
                 <div class="fs-6 fw-semibold text-gray-500 mb-2 mb-md-0">
                     Hiển thị từ {{ $orders->firstItem() ?? 0 }} đến {{ $orders->lastItem() ?? 0 }} trên tổng số

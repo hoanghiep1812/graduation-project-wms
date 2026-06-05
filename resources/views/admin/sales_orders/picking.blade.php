@@ -4,7 +4,7 @@
 
 @section('content')
 
-    
+    <!-- Alert chuẩn hóa -->
     @if(session('error'))
         <div class="alert alert-dismissible bg-light-danger border border-danger d-flex flex-column flex-sm-row p-5 mb-10">
             <i class="ki-duotone ki-shield-cross fs-2hx text-danger me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
@@ -19,7 +19,7 @@
     @endif
 
     <div class="row g-5 g-xl-8">
-        
+        <!-- Cột Trái: Thông tin lệnh (Thu gọn col-3 để nhường chỗ cho Timeline) -->
         <div class="col-xl-3">
             <div class="card border-0 shadow-sm mb-xl-8">
                 <div class="card-header border-0 pt-5">
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        
+        <!-- Cột Phải: Timeline Lộ trình -->
         <div class="col-xl-9">
             <div class="card border-0 shadow-sm mb-5 mb-xl-8">
                 <div class="card-header border-0 pt-5">
@@ -74,20 +74,20 @@
                             @endphp
 
                             <div class="timeline-item">
-                                
+                                <!-- Dòng kẻ -->
                                 <div class="timeline-line w-40px"></div>
                                 
-                                
+                                <!-- Icon điểm dừng -->
                                 <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
                                     <div class="symbol-label bg-light-primary">
                                         <span class="fs-5 fw-bolder text-primary">{{ $index + 1 }}</span>
                                     </div>
                                 </div>
                                 
-                                
+                                <!-- Nội dung bước lấy hàng -->
                                 <div class="timeline-content mb-10 mt-n1">
                                     <div class="pe-3 mb-4">
-                                        
+                                        <!-- Header bước: Điều hướng vị trí -->
                                         <div class="fs-5 fw-semibold mb-3 d-flex align-items-center flex-wrap">
                                             <span class="text-gray-600 me-2">Đi đến:</span> 
                                             <span class="badge badge-light-info fw-bold px-3 py-2 fs-6 me-2">Khu Vực {{ $zone }}</span> 
@@ -95,17 +95,17 @@
                                             <span class="badge badge-light-primary fw-bold px-3 py-2 fs-6 mt-2 mt-sm-0">Kệ {{ $bin->code }}</span>
                                         </div>
                                         
-                                        
+                                        <!-- Khối chi tiết sản phẩm (Đã tối ưu Mobile) -->
                                         <div class="border border-dashed border-gray-300 rounded px-5 py-4 bg-light">
                                             <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center">
                                                 
-                                                
+                                                <!-- Thông tin SP -->
                                                 <div class="mb-4 mb-sm-0 me-3">
                                                     <span class="text-gray-800 fw-bold fs-4 d-block mb-1">{{ $product->name }}</span>
                                                     <span class="text-muted fw-semibold fs-7 d-block">Mã SKU: {{ $product->sku }}</span>
                                                 </div>
                                                 
-                                                
+                                                <!-- Số lượng cần lấy -->
                                                 <div class="text-start text-sm-end bg-body rounded border border-gray-200 p-3 w-100 w-sm-auto">
                                                     <span class="text-primary fw-bolder fs-2hx d-block lh-1 mb-2">{{ $allo->allocated_quantity }} <span class="fs-5 text-muted fw-semibold">cái</span></span>
                                                     <span class="badge badge-light-warning fw-bold fs-8">
@@ -120,7 +120,7 @@
                             </div>
                         @endforeach
 
-                        
+                        <!-- Bước cuối: Hoàn tất -->
                         <div class="timeline-item">
                             <div class="timeline-line w-40px"></div>
                             <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
@@ -136,7 +136,7 @@
 
                     </div>
 
-                    
+                    <!-- Nút thao tác: Xếp ngang trên Web, Xếp dọc trên Mobile -->
                     <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-10 border-top border-gray-200 pt-7">
                         <a href="{{ route('admin.sales_orders.index') }}" class="btn btn-light fw-bold w-100 w-sm-auto mb-3 mb-sm-0">Hủy & Trở lại</a>
                         

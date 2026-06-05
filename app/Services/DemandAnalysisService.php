@@ -13,25 +13,21 @@ class DemandAnalysisService
     public function calculateVelocityForAllProducts()
     {
         $now = Carbon::now();
-
-        $start30 = $now->copy()->subMonth()->startOfMonth();
-        $end30   = $now->copy()->subMonth()->endOfMonth();
-
-        $start90 = $now->copy()->subMonths(3)->startOfMonth();
-        $end90   = $end30;
+        $start30 = $now->copy()->subDays(30);
+        $start90 = $now->copy()->subDays(90);
 
         $movements = StockMovement::join('inventories', 'stock_movements.inventory_id', '=', 'inventories.id')
-            ->where('stock_movements.transaction_type', 'outbound')
-            ->whereBetween('stock_movements.created_at', [$start90, $end90])
+            ->where('stock_movements.transaction_type', 'Xuất kho')
+            ->where('stock_movements.created_at', '>=', $start90)
             ->selectRaw('
                 inventories.product_id,
                 SUM(CASE 
-                    WHEN stock_movements.created_at BETWEEN ? AND ? 
+                    WHEN stock_movements.created_at >= ? 
                     THEN ABS(stock_movements.quantity_change) 
                     ELSE 0 
                 END) as sales_30_days,
                 SUM(ABS(stock_movements.quantity_change)) as sales_90_days
-            ', [$start30, $end30])
+            ', [$start30])
             ->groupBy('inventories.product_id')
             ->get();
 

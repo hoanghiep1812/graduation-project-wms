@@ -6,5 +6,6 @@
             <a href="" target="_blank" class="text-gray-800 text-hover-primary">Warehouse</a>
         </div>
     </div>
-    
+    <!--end::Footer container-->
 </div>
+<!--end::Footer-->

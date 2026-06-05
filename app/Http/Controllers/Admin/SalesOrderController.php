@@ -17,26 +17,33 @@ use Illuminate\Http\Request;
 
 class SalesOrderController extends Controller
 {
-    public function index(Request $request)
-    {
-        $query = SalesOrder::query();
-
+   public function index(Request $request)
+    {        
+        $query = SalesOrder::with(['assignedUser', 'shippedUser', 'creator']);
+                
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
-
             $query->where(function ($q) use ($keyword) {
                 $q->where('so_number', 'like', "%$keyword%")
                     ->orWhere('customer_name', 'like', "%$keyword%");
             });
         }
-
-        $orders = $query->orderBy('created_at', 'desc')->paginate(10);
-
+                
+        if ($request->filled('staff_id')) {
+            $staffId = $request->staff_id;
+            $query->where(function ($q) use ($staffId) {
+                $q->where('assigned_to', $staffId)     
+                  ->orWhere('shipped_by', $staffId);    
+            });
+        }
+        
+        $orders = $query->orderBy('created_at', 'desc')->paginate(10);        
         $orders->appends($request->all());
+        
+        $staffs = \App\Models\User::all();
 
-        return view('admin.sales_orders.index', compact('orders'));
+        return view('admin.sales_orders.index', compact('orders', 'staffs'));
     }
-
     public function create()
     {
         $products = Product::where('is_active', 1)->get();
@@ -51,7 +58,7 @@ class SalesOrderController extends Controller
         $request->validate([
             'so_number' => 'required|unique:sales_orders,so_number',
             'partner_id' => 'required|exists:partners,id',
-
+			
             'items' => 'required|array|min:1',
             'items.*.product_id' => 'required|exists:products,id',
             'items.*.quantity' => 'required|integer|min:1',
@@ -86,6 +93,7 @@ class SalesOrderController extends Controller
             $order = SalesOrder::create([
                 'so_number'     => $request->so_number,
                 'partner_id'    => $partner->id,
+                'warehouse_id'  => $warehouseId,
                 'customer_name' => $partner->name,
                 'status'        => 'draft',
                 'created_by'    => auth()->id() ?? 1,
@@ -195,7 +203,7 @@ class SalesOrderController extends Controller
         try {
             DB::beginTransaction();
 
-            
+            // Khóa đơn hàng
             $order = SalesOrder::lockForUpdate()->findOrFail($id);
 
             if ($order->status === 'shipped') {

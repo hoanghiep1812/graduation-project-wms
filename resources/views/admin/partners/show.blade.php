@@ -4,22 +4,22 @@
 
 @section('content')
 
-    
+    <!-- Nút quay lại -->
     <div class="mb-5">
         <a href="{{ route('admin.partners.index') }}" class="btn btn-sm btn-light fw-bold">
             <span class="path1"></span><span class="path2"></span> Quay lại danh sách
         </a>
     </div>
 
-    
+    <!-- Container bọc 2 cột -->
     <div class="d-flex flex-column flex-lg-row gap-5 gap-xl-8">
 
-        
+        <!-- CỘT TRÁI: THÔNG TIN PROFILE (Chiếm 1/3) -->
         <div class="flex-column flex-lg-row-auto w-100 w-lg-300px w-xl-350px">
             <div class="card card-flush border-0 shadow-sm mb-5 mb-xl-8">
                 <div class="card-body pt-15">
 
-                    
+                    <!-- Avatar & Tên -->
                     <div class="d-flex flex-center flex-column mb-8">
                         <div class="symbol symbol-100px symbol-circle mb-5">
                             <span class="symbol-label fs-2x fw-bolder bg-light-primary text-primary">
@@ -38,7 +38,7 @@
 
                     <div class="separator separator-dashed my-5"></div>
 
-                    
+                    <!-- Chi tiết liên hệ -->
                     <div class="pb-5 fs-6">
                         <div class="fw-bolder mt-5 text-gray-800 text-uppercase fs-7"><span class="path1"></span><span
                                 class="path2"></span> Mã số thuế</div>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        
+        <!-- CỘT PHẢI: LỊCH SỬ GIAO DỊCH (Chiếm 2/3) -->
         <div class="flex-lg-row-fluid">
             <div class="card card-flush border-0 shadow-sm h-100">
 
@@ -69,7 +69,7 @@
 
                 <div class="card-body pt-5">
                     <div class="table-responsive">
-                        
+                        <!-- Thêm text-nowrap để không gãy bảng trên Mobile -->
                         <table class="table align-middle table-row-dashed table-row-gray-200 fs-6 gy-5 text-nowrap">
                             <thead>
                                 <tr
@@ -82,13 +82,13 @@
                             <tbody class="fw-semibold text-gray-600">
                                 @forelse($partner->salesOrders ?? [] as $order)
                                     <tr>
-                                        
+                                        <!-- FIX LỖI MÃ ĐƠN: Dùng so_number thay vì code -->
                                         <td class="ps-0">
                                             <span
                                                 class="text-gray-800 fw-bolder d-block fs-6">{{ $order->so_number ?? 'N/A' }}</span>
                                         </td>
 
-                                        
+                                        <!-- Thời gian -->
                                         <td>
                                             <span class="d-block">{{ $order->created_at->format('d/m/Y') }}</span>
                                             <span class="text-muted fs-8">{{ $order->created_at->format('H:i') }}</span>
