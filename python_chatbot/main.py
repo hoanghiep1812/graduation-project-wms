@@ -95,15 +95,18 @@ def search_product(text):
     if not clean: return None
     q_norm = normalize_query(clean)
     
+    for p in PRODUCT_CATALOG:
+        if p['sku'].lower() in q_norm: 
+            return p
+ 
     vec = embedder.encode([q_norm], convert_to_numpy=True)
     faiss.normalize_L2(vec)
     
     scores, idxs = index.search(vec, 3)
+
     if scores[0][0] > 0.38:
         return PRODUCT_CATALOG[idxs[0][0]]
     
-    for p in PRODUCT_CATALOG:
-        if p['sku'].lower() in q_norm: return p
     return None
 
 INTENT_PATTERNS = {
