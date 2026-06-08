@@ -269,14 +269,16 @@ class ChatbotApiController extends Controller
     }
     public function searchProductByName(Request $request)
     {
-        $keyword = $request->query('name');
-        if (!$keyword) return response()->json(['error' => 'Missing name'], 400);
-
-        $products = Product::where('name', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('sku', 'LIKE', '%' . $keyword . '%')
-            ->limit(5)
-            ->get(['sku', 'name']);
-
+        $keyword = $request->query('name');        
+        if (empty($keyword)) {
+            $products = Product::limit(50)->get(['sku', 'name']);
+        }         
+        else {
+            $products = Product::where('name', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('sku', 'LIKE', '%' . $keyword . '%')                
+                ->limit(20) 
+                ->get(['sku', 'name']);
+        }
         return response()->json([
             'found'    => $products->count() > 0,
             'products' => $products,
