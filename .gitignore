@@ -22,3 +22,6 @@ python_chatbot/*_venv/
 vendor/
 node_modules/
 .env
+app_moblie/.dart_tool/
+app_moblie/build/
+app_moblie/.env
