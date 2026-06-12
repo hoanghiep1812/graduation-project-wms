@@ -54,6 +54,7 @@ Route::prefix('chatbot')->group(function () {
     Route::get('/inventory/adjustments', [ChatbotApiController::class, 'getAdjustmentHistory']);
     Route::get('/movement/check-product', [ChatbotApiController::class, 'checkProductInMovement']);
     Route::get('/movement/today-check', [ChatbotApiController::class, 'todayCheckProduct']);
+    Route::get('/batch/details', [ChatbotApiController::class, 'getBatchDetails']);
 });
 
 Route::post('/update-fcm-token', function (Request $request) {

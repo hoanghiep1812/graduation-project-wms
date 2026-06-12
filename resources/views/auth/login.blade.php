@@ -171,7 +171,7 @@
                     @endif
 
                     <div class="fv-row mb-6 text-start">
-                        <label class="form-label fs-8 fw-bold text-gray-700">Tên đăng nhập / Mã NV <span class="text-danger">*</span></label>
+                        <label class="form-label fs-8 fw-bold text-gray-700">Tên đăng nhập <span class="text-danger">*</span></label>
                         <input type="text" placeholder="Ví dụ: NV001" name="username"
                             value="{{ old('username') }}" autocomplete="off"
                             class="form-control form-control-solid bg-transparent fw-semibold text-gray-800"

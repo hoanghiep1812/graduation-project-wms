@@ -13,6 +13,7 @@ use App\Models\SalesOrder;
 use App\Models\SlottingRecommendation;
 use App\Models\StockMovement;
 use App\Models\Zone;
+use App\Models\Batch;
 use Illuminate\Http\Request;
 
 class ChatbotApiController extends Controller
@@ -819,6 +820,35 @@ class ChatbotApiController extends Controller
         return response()->json([
             'found' => true,
             'sku' => $sku,
+            'items' => $items
+        ]);
+    }
+    public function getBatchDetails(Request $request)
+    {
+        $batchCode = $request->query('batch_code');    
+        $batch = Batch::where('batch_number', $batchCode)
+            ->orWhere('batch_number', 'LOT-' . $batchCode)
+            ->first();
+                                
+        if (!$batch) return response()->json(['found' => false, 'msg' => 'Không tìm thấy lô']);
+        
+        $items = \App\Models\Inventory::with(['product', 'binLocation'])
+            ->where('batch_id', $batch->id)
+            ->where('on_hand_quantity', '>', 0)
+            ->get()
+            ->map(function ($inv) {
+                return [
+                    'sku' => $inv->product->sku ?? 'N/A',
+                    'name' => $inv->product->name ?? 'N/A',
+                    'qty' => (int) $inv->on_hand_quantity,
+                    'location' => $inv->binLocation->code ?? 'N/A'
+                ];
+            });
+
+        return response()->json([
+            'found' => true,
+            'batch_code' => $batch->batch_number,
+            'expiry_date' => $batch->expiry_date,
             'items' => $items
         ]);
     }

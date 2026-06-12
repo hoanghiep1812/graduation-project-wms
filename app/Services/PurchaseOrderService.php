@@ -92,14 +92,16 @@ class PurchaseOrderService
                     $mfgDate = $place['manufactured_date'] ?? now()->toDateString();
                 }
 
+                $batchNumber = 'LOT-' . $lockedPo->po_number . '-' . $product->sku;
+
                 $batch = Batch::firstOrCreate(
                     [
-                        'product_id'        => $item->product_id,
-                        'manufactured_date' => $mfgDate,
-                        'expiry_date'       => $expDate,
+                        'product_id'   => $item->product_id,
+                        'batch_number' => $batchNumber, 
                     ],
                     [
-                        'batch_number' => 'LOT-' . $item->product_id . '-' . date('Ymd') . '-' . rand(1000, 9999)
+                        'manufactured_date' => $mfgDate,
+                        'expiry_date'       => $expDate,
                     ]
                 );
 

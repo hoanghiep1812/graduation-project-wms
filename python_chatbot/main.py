@@ -110,6 +110,7 @@ def search_product(text):
     return None
 
 INTENT_PATTERNS = {
+    "batch_info":       ["lô", "lô hàng", "lô số"],
     "product_velocity": ["nhanh hay chậm", "tốc độ", "bán chạy"],
     "expiry":           ["hạn sử dụng", "hết hạn", "hsd"],
     "lowstock":         ["sắp hết", "cạn kho", "cảnh báo"],
@@ -173,9 +174,21 @@ def build_template_response(intent, product, data):
         msg = f"**Bảng kê {title}:**\n\n| Sản phẩm | SKU | {col} |\n|---|---|---|\n"
         for i in items[:8]: msg += f"| {i['name']} | {i['sku']} | **{i[key]}** |\n"
         return msg
+    
+    if intent == "batch_info":
+        if not data.get("found"):
+             return "Dạ, không tìm thấy thông tin lô này ạ."
+        items_list = "\n".join([f"- {i['name']} ({i['sku']}): {i['qty']} tại {i['location']}" for i in data['items']])
+        return f"Dạ, lô **{data['batch_code']}** (HSD: {data['expiry_date']}) gồm:\n{items_list}"
+
     return None
 
-llm = Llama(model_path="./qwen2.5-1.5b-instruct-q3_k_m.gguf", n_ctx=1024, n_threads=1, verbose=False)
+llm = Llama(
+    model_path="/www/wwwroot/easywms.io.vn/python_chatbot/qwen2.5-1.5b-instruct-q3_k_m.gguf",
+    n_ctx=1024,
+    n_threads=1,
+    verbose=False
+)
 
 async def ask_llm(prompt, cache_key):
     if cache_key in llm_cache: return llm_cache[cache_key]
@@ -226,6 +239,12 @@ async def chat(q: ChatQuery):
             elif len(year) == 2: 
                 year = "20" + year
             target_date = f"{year}-{month.zfill(2)}-{day.zfill(2)}"
+
+    product = None
+    if intent != "batch_info":
+        product = search_product(text)
+        if not product and ctx.get("sku"): 
+            product = {"sku": ctx["sku"], "name": ctx["name"]}   
         
     endpoints = {
         "inventory": "/inventory/by-product", 
@@ -239,13 +258,20 @@ async def chat(q: ChatQuery):
         "product_velocity": "/velocity/by-product",
         "expiry": "/inventory/expiring",
         "dead_stock": "/movement/dead-stock",
-        "history": "/product/history"
+        "history": "/product/history",
+        "batch_info": "/batch/details"
     }
     
     data = {}
     if endpoints.get(intent):
         params = {}
         if sku: params["sku"] = sku
+        if intent == "batch_info":
+            match_batch = re.search(r'lô\s+([a-zA-Z0-9\-_]+)', text, re.IGNORECASE)
+            if match_batch:
+                params["batch_code"] = match_batch.group(1)
+            else:
+                return "Dạ, bạn đọc lại mã lô giúp mình nhé, mình chưa thấy mã lô trong câu hỏi ạ."
         if target_date and intent in ["today_imported", "today_exported", "history"]:
             params["date"] = target_date
         if target_month: params["month"] = target_month

@@ -1,14 +1,31 @@
 nohup: ignoring input
-⏳ Đang tải Embedding Model...
-✅ Vector DB đã sẵn sàng với 6 sản phẩm.
-⏳ Đang nạp LLM Q3...
-Traceback (most recent call last):
-  File "/www/wwwroot/easywms.io.vn/python_chatbot/main.py", line 115, in <module>
-    llm = Llama(
-  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/llama_cpp/llama.py", line 962, in __init__
-    self._n_vocab = self.n_vocab()
-  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/llama_cpp/llama.py", line 2274, in n_vocab
-    return self._model.n_vocab()
-  File "/www/wwwroot/easywms.io.vn/python_chatbot/48ac1da51167a4b4eb33104d6bb08b24_venv/lib/python3.10/site-packages/llama_cpp/llama.py", line 251, in n_vocab
-    assert self.model is not None
-AssertionError
+⏳ Loading Embedding...
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 5306.63it/s]
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 10987.22it/s]
+[1mBertModel LOAD REPORT[0m from: /root/.cache/huggingface/hub/models--sentence-transformers--paraphrase-multilingual-MiniLM-L12-v2/snapshots/e8f8c211226b894fcb81acc59f3b34ba3efd5f42
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+llama_context: n_ctx_seq (1024) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+✅ Deep RAG ready with 100 products
+⏳ Loading Embedding...
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 6281.51it/s]
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  76%|███████▌  | 151/199 [00:00<00:00, 1474.94it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1164.43it/s]
+[1mBertModel LOAD REPORT[0m from: /root/.cache/huggingface/hub/models--sentence-transformers--paraphrase-multilingual-MiniLM-L12-v2/snapshots/e8f8c211226b894fcb81acc59f3b34ba3efd5f42
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+llama_context: n_ctx_seq (1024) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+INFO:     Started server process [2238235]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] Address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+✅ Deep RAG ready with 100 products
