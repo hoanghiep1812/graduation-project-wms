@@ -94,7 +94,7 @@ flutter run
 
 > 🎓 **ĐỒ ÁN TỐT NGHIỆP NGÀNH KỸ THUẬT PHẦN MỀM — NĂM 2026**
 >
-> Dự án này được nghiên cứu và phát triển trong khuôn khổ Đồ án tốt nghiệp hệ chính quy tại **Trường Đại học Công nghệ thông tin và Truyền thông — Đại học Thái Nguyên (ICTU)**.
+> Dự án này được nghiên cứu và phát triển trong khuôn khổ Đồ án tốt nghiệp hệ chính quy tại **Trường Đại học Công nghệ thông tin và Truyền thông - Đại học Thái Nguyên (ICTU)**.
 >
 > * **Tác giả:** Hoàng Thế Hiệp
 
