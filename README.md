@@ -88,7 +88,15 @@ flutter pub get
 # Chạy ứng dụng trên thiết bị giả lập hoặc thiết bị thật (Chế độ Debug)
 flutter run
 ```
-🔒 Bản Quyền & Giấy Phép
-Dự án được phát triển trong khuôn khổ Đồ án tốt nghiệp ngành Kỹ thuật phần mềm Trường Đại học Công nghệ thông tin và Truyền thông - Đạo học Thái Nguyên năm 2026. Tất cả mã nguồn được bảo lưu quyền tác giả bởi sinh viên thực hiện.
+---
+
+## 🔒 Bản Quyền & Giấy Phép
+
+> 🎓 **ĐỒ ÁN TỐT NGHIỆP NGÀNH KỸ THUẬT PHẦN MỀM — NĂM 2026**
+>
+> Dự án này được nghiên cứu và phát triển trong khuôn khổ Đồ án tốt nghiệp hệ chính quy tại **Trường Đại học Công nghệ thông tin và Truyền thông — Đại học Thái Nguyên (ICTU)**.
+>
+> * **Tác giả:** Hoàng Thế Hiệp
+
 
 
