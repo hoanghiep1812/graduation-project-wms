@@ -1,6 +1,6 @@
-# EasyWMS - Hệ Thống Quản Lý Kho Thông Minh Tích Hợp Local AI RAG
+# EasyWMS - HỆ THỐNG QUẢN LÝ KHO GIA DỤNG: ĐẢM BẢO TOÀN VẸN DỮ LIỆU VÀ TỐI ƯU VỊ TRÍ LẤY HÀNG KHI XUẤT KHO
 
-Hệ thống quản lý kho hàng hộ gia đình và doanh nghiệp nhỏ, tối ưu hóa không gian lưu trữ, đảm bảo tính toàn vẹn dữ liệu giao dịch và tích hợp trợ lý ảo AI tra cứu bảo mật nội bộ.
+Hệ thống quản lý kho gia dụng, tối ưu hóa không gian lưu trữ, đảm bảo tính toàn vẹn dữ liệu và tích hợp trợ lý ảo AI tra cứu bảo mật nội bộ.
 
 ---
 
@@ -13,7 +13,7 @@ Hệ thống được phát triển theo mô hình ứng dụng phân tán, đ�
 
 ---
 
-## 🌟 Tính Năng Cốt Lõi (Phạm Vi MVP)
+## 🌟 Tính Năng Cốt Lõi 
 
 1.  **Quản Lý Vận Hành Tập Trung (Web Admin):**
     * Số hóa cấu trúc kho bãi theo vị trí vật lý cụ thể (Khu vực, Kệ hàng, Ô chứa).
