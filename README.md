@@ -1,66 +1,60 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# EasyWMS - Hệ Thống Quản Lý Kho Thông Minh Tích Hợp Local AI RAG
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Hệ thống quản lý kho hàng hộ gia đình và doanh nghiệp nhỏ, tối ưu hóa không gian lưu trữ, đảm bảo tính toàn vẹn dữ liệu giao dịch và tích hợp trợ lý ảo AI tra cứu bảo mật nội bộ.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🏗️ Kiến Trúc Tổng Thể Hệ Thống (Tech Stack)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Hệ thống được phát triển theo mô hình ứng dụng phân tán, đảm bảo tính độc lập và bảo mật cao:
+* **Main Backend & Web Admin:** Laravel (PHP) & MySQL – Đóng vai trò bộ não điều hành, xử lý các nghiệp vụ cốt lõi (Nhập, Xuất, Tồn kho) và quản lý giao dịch (Database Transactions / Pessimistic Locking).
+* **AI Engine Server:** FastAPI (Python) & FAISS Vector Database – Máy chủ độc lập xử lý kỹ thuật RAG (Retrieval-Augmented Generation) và chạy mô hình Local LLM.
+* **Mobile App (Dành cho Admin):** Flutter (Dart) – Ứng dụng di động đa nền tảng giúp ban quản lý giám sát hệ thống, nhận thông báo đề xuất dời kệ và tích hợp Chatbot AI từ xa.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🌟 Tính Năng Cốt Lõi (Phạm Vi MVP)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1.  **Quản Lý Vận Hành Tập Trung (Web Admin):**
+    * Số hóa cấu trúc kho bãi theo vị trí vật lý cụ thể (Khu vực, Kệ hàng, Ô chứa).
+    * Quản lý danh mục Sản phẩm, Đối tác, Nhà cung cấp.
+    * Khởi tạo và quản lý chứng từ Nhập kho – Xuất kho thời gian thực.
+    * Tự động tính toán sức chứa và gợi ý kệ trống tối ưu cho hàng hóa khi Nhập kho.
+    * Lọc hàng hóa xuất kho tự động theo tiêu chuẩn FEFO/FIFO và vạch lộ trình lấy hàng ngắn nhất.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2.  **Đảm Bảo Toàn Vẹn Dữ Liệu:**
+    * Áp dụng Cơ chế khóa bi quan (`Pessimistic Locking`) kết hợp `Database Transactions` để đóng băng dòng dữ liệu tồn kho tức thời khi phát sinh giao dịch, triệt tiêu hoàn toàn lỗi tranh chấp hoặc "âm kho".
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3.  **Giám Sát Bỏ Túi & Điều Hành Từ Xa (Mobile App):**
+    * Dành riêng cho tài khoản Quản trị viên (Admin) để theo dõi biến động số liệu kho mọi lúc mọi nơi.
+    * Nhận thông báo tức thời khi hệ thống đề xuất điều chuyển, dời kệ hàng hóa (chuyển hàng bán chạy ra gần cửa xuất).
+    * Tích hợp Chatbot AI đồng bộ trực tiếp như phiên bản Web.
 
-## Laravel Sponsors
+4.  **Trợ Lý Ảo Chatbot AI Bảo Mật Nội Bộ (RAG & Local LLM):**
+    * Sử dụng kiến trúc RAG để tự động gọi API lấy số liệu thực tế từ cơ sở dữ liệu làm ngữ cảnh (Context) trước khi đưa vào Prompt.
+    * Sử dụng mô hình Local LLM chạy 100% trên hạ tầng nội bộ để sinh câu trả lời chính xác, loại bỏ hoàn toàn rủi ro AI bịa đặt thông tin.
+    * Đảm bảo an toàn tuyệt đối cho bí mật kinh doanh, không gửi bất kỳ byte dữ liệu nào ra Cloud API bên ngoài (nhũ ChatGPT/Gemini).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ⚙️ Hướng Dẫn Cài Đặt & Vận Hành
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 1. Cấu Hình Phân Hệ Web & Backend (Laravel)
+Yêu cầu: PHP >= 8.x, Composer, MySQL.
 
-## Contributing
+```bash
+# Di chuyển vào thư mục gốc của dự án Web
+cd graduation-project-wms
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Cài đặt các thư viện phụ thuộc
+composer install
 
-## Code of Conduct
+# Tạo file môi trường và cấu hình Database trong file .env
+cp .env.example .env
+php artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Chạy Migration để khởi tạo cấu trúc bảng dữ liệu và dữ liệu mẫu
+php artisan migrate --seed
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Khởi chạy server Web nội bộ
+php artisan serve
