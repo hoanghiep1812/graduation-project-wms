@@ -58,3 +58,37 @@ php artisan migrate --seed
 
 # Khởi chạy server Web nội bộ
 php artisan serve
+```
+### 2. Cấu Hình Phân Hệ AI Server
+Yêu cầu: Python >= 3.9, pip.
+
+```bash
+# Di chuyển vào thư mục chứa mã nguồn AI
+cd python_chatbot
+
+# Cài đặt các thư viện cần thiết
+pip install -r requirements.txt
+
+# Khởi chạy máy chủ AI cục bộ
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+### Cấu Hình Ứng Dụng Di Động (Flutter Mobile App)
+Yêu cầu: Flutter SDK đã cấu hình trên máy cá nhân, Android Studio / Xcode.
+
+```bash
+# Di chuyển vào thư mục ứng dụng di động
+cd app_mobile
+
+# Lấy các gói thư viện Flutter về máy
+flutter pub get
+
+# Cấu hình IP Endpoint trỏ về Laravel Backend Server trong file cấu hình (ví dụ: lib/config.dart)
+# Thay đổi URL thành IP cục bộ của bạn: http://<YOUR_LOCAL_IP>:8000/api
+
+# Chạy ứng dụng trên thiết bị giả lập hoặc thiết bị thật (Chế độ Debug)
+flutter run
+```
+🔒 Bản Quyền & Giấy Phép
+Dự án được phát triển trong khuôn khổ Đồ án tốt nghiệp ngành Kỹ thuật phần mềm Trường Đại học Công nghệ thông tin và Truyền thông - Đạo học Thái Nguyên năm 2026. Tất cả mã nguồn được bảo lưu quyền tác giả bởi sinh viên thực hiện.
+
+
