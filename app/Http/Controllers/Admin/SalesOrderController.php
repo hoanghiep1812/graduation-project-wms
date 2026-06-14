@@ -152,6 +152,12 @@ class SalesOrderController extends Controller
     public function pickingRoute($id)
     {
         $order = SalesOrder::with('items.product')->findOrFail($id);
+        
+        $userId = auth()->id() ?? 1;
+        if ($order->assigned_to !== null && $order->assigned_to !== $userId) {
+            return redirect()->route('admin.sales_orders.index')
+                ->with('error', 'Đơn này đang được nhân viên khác xử lý.');
+        }
 
         $allocations = SalesOrderItemAllocation::with([
             'salesOrderItem.product',
@@ -186,9 +192,15 @@ class SalesOrderController extends Controller
     public function completePicking($id)
     {
         $order = SalesOrder::findOrFail($id);
+        
+        $userId = auth()->id() ?? 1;
+        if ($order->assigned_to !== null && $order->assigned_to !== $userId) {
+            return redirect()->route('admin.sales_orders.index')
+                ->with('error', 'Bạn không thể xác nhận hoàn tất đơn hàng do người khác đang nhặt!');
+        }
 
         if ($order->status !== 'picking') {
-            return redirect()->route('admin.sales_orders.index')->with('error', 'Chuyến hàng chưa ở trạng thái đang nhặt!');
+            return redirect()->route('admin.sales_orders.index')->with('error', 'Đơn hàng chưa ở trạng thái đang nhặt!');
         }
 
         $order->status = 'picked';
