@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Quản lý Xuất Kho (Outbound)')
+@section('title', 'Quản lý Xuất Kho ')
 
 @section('content')
     @if(session('error'))

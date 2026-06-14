@@ -2,8 +2,7 @@
 
 @section('title', 'Quản lý Sản phẩm')
 
-@section('content')
-    {{-- Hiển thị thông báo kiểu Enterprise, mượt mà và liền mạch --}}
+@section('content')    
     @if(session('error'))
         <div class="alert alert-danger d-flex align-items-center p-4 mb-5 shadow-sm border-0">
             <i class="ki-duotone ki-shield-cross fs-2hx text-danger me-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
@@ -38,8 +37,7 @@
                 </a>
             </div>
         </div>
-
-        {{-- Card Body: Bảng dữ liệu mật độ cao, monochrome style --}}
+        
         <div class="card-body pt-0">
             <div class="table-responsive">
                 <table class="table align-middle table-row-dashed fs-7 gy-4">
@@ -60,32 +58,27 @@
                         @forelse($products as $key => $product)
                             <tr>
                                 <td class="ps-4">{{ $key + 1 }}</td>
-                                <td>
-                                    {{-- Nổi bật SKU bằng màu Primary của doanh nghiệp --}}
+                                <td>                                    
                                     <span class="badge badge-light-primary fw-bold px-3 py-1 fs-8">{{ $product->sku }}</span>
                                 </td>
                                 <td>
                                     <span class="text-gray-900 fw-bold fs-7 text-hover-primary">{{ $product->name }}</span>
                                 </td>
                                 <td class="text-center text-gray-600">{{ $product->unit ?? 'Cái' }}</td>
-                                <td class="text-center">
-                                    {{-- Làm dịu màu thẻ, dùng Gray (Secondary) để khử nhiễu Danger Red --}}
+                                <td class="text-center">                                    
                                     <span class="badge badge-light-secondary fw-bold px-3 py-1 text-gray-700">{{ $product->minimum_stock }}</span>
                                 </td>
                                 <td class="text-center">
-                                    @if($product->has_expiry)
-                                        {{-- Khử nhiễu Info Blue sang Gray trung tính --}}
+                                    @if($product->has_expiry)                                        
                                         <span class="badge badge-light-secondary fw-bold px-3 py-1 text-gray-700">{{ $product->expiry_duration }} T</span>
                                     @else
                                         <span class="text-muted fs-8">N/A</span>
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    @if($product->is_active)
-                                        {{-- Dùng màu doanh nghiệp (Primary) hoặc Gray cho active, khử nhiễu Green --}}
+                                    @if($product->is_active)                                        
                                         <span class="badge badge-light-primary fw-bold px-3 py-1 fs-8">Kinh doanh</span>
-                                    @else
-                                        {{-- Chỉ dùng đỏ rực rất hạn chế cho ngừng bán --}}
+                                    @else                                        
                                         <span class=" badge badge-light-danger fw-bold px-3 py-1 fs-8">Ngừng bán</span>
                                     @endif
                                 </td>
@@ -116,8 +109,7 @@
                     </tbody>
                 </table>
             </div>
-
-            {{-- Phân trang chuẩn Metronic/Bootstrap 5 --}}
+            
             <div class="d-flex justify-content-between align-items-center mt-5">
                 <div class="fs-8 fw-semibold text-gray-700">
                     Hiển thị {{ $products->firstItem() ?? 0 }} đến {{ $products->lastItem() ?? 0 }} của {{ $products->total() }} sản phẩm

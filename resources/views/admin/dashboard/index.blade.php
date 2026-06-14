@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
-@section('title', 'Tổng Quan Vận Hành (WMS Command Center)')
+@section('title', 'Tổng Quan Vận Hành ')
 
 @section('content')
 
-    <!-- 1. KEY METRICS (KPIs) -->
+    
     <div class="row g-5 g-xl-8 mb-8">
-        <!-- Chờ dỡ hàng -->
+        
         <div class="col-xl-3">
             <div class="card card-xl-stretch mb-xl-8 border-start border-4 border-primary">
                 <div class="card-body d-flex flex-column">
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <!-- Chờ nhặt hàng -->
+        
         <div class="col-xl-3">
             <div class="card card-xl-stretch mb-xl-8 border-start border-4 border-info">
                 <div class="card-body d-flex flex-column">
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <!-- Cạn kho -->
+        
         <div class="col-xl-3">
             <div class="card card-xl-stretch mb-xl-8 border-start border-4 border-danger">
                 <div class="card-body d-flex flex-column">
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <!-- AI Reslotting -->
+        
         <div class="col-xl-3">
             <div class="card card-xl-stretch mb-xl-8 border-start border-4 border-warning">
                 <div class="card-body d-flex flex-column">
@@ -75,9 +75,9 @@
         </div>
     </div>
 
-    <!-- 2. CHARTS OVERVIEW -->
+    
     <div class="row g-5 g-xl-8 mb-8">
-        <!-- Capacity -->
+        
         <div class="col-xl-6">
             <div class="card card-xl-stretch h-100">
                 <div class="card-header border-0 pt-5">
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <!-- ABC Analysis -->
+        
         <div class="col-xl-6">
             <div class="card card-xl-stretch h-100">
                 <div class="card-header border-0 pt-5">
@@ -114,9 +114,9 @@
         </div>
     </div>
 
-    <!-- 3. ALERTS & TABLES -->
+    
     <div class="row g-5 g-xl-8 mb-8">
-        <!-- FEFO Alert -->
+        
         <div class="col-xl-6">
             <div class="card card-xl-stretch h-100">
                 <div class="card-header border-0 pt-5">
@@ -171,7 +171,7 @@
             </div>
         </div>
 
-        <!-- Low Stock Alert -->
+        
         <div class="col-xl-6">
             <div class="card card-xl-stretch h-100">
                 <div class="card-header border-0 pt-5">
@@ -217,9 +217,9 @@
         </div>
     </div>
 
-    <!-- 4. SECONDARY DATA -->
+    
     <div class="row g-5 g-xl-8">
-        <!-- Top Velocity -->
+        
         <div class="col-xl-6">
             <div class="card card-xl-stretch mb-5 mb-xl-8">
                 <div class="card-header border-0 pt-5">
@@ -266,7 +266,7 @@
             </div>
         </div>
 
-        <!-- Recent Transactions -->
+        
         <div class="col-xl-6">
             <div class="card card-xl-stretch mb-5 mb-xl-8">
                 <div class="card-header border-0 pt-5">

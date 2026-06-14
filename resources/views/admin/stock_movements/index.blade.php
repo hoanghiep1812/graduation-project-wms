@@ -5,7 +5,7 @@
 @section('content')
     <div class="card card-flush border-0 shadow-sm">
         
-        <!-- HEADER: Tiêu đề & Nút Xuất Excel (Toolbar) -->
+        
         <div class="card-header align-items-center py-5 gap-2 gap-md-5 flex-wrap border-bottom border-gray-200">
             <div class="card-title flex-column align-items-start m-0 w-100 w-md-auto">
                 <span class="card-label fw-bold fs-3 mb-1 text-gray-800">Thẻ Kho (Biến Động Tồn)</span>
@@ -21,12 +21,12 @@
 
         <div class="card-body pt-5">
             
-            <!-- FILTER SECTION: Tối ưu Grid cho Mobile -->
+            
             <div class="bg-light rounded p-4 mb-7 border border-gray-300 border-dashed">
                 <form method="GET" action="{{ route('admin.stock_movements.index') }}">
                     <div class="row g-3 align-items-center">
                         
-                        <!-- Từ ngày -->
+                        
                         <div class="col-6 col-md-auto">
                             <div class="input-group input-group-solid input-group-sm">
                                 <span class="input-group-text text-muted border-end-0"><i class="ki-duotone ki-calendar-8 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i></span>
@@ -34,7 +34,7 @@
                             </div>
                         </div>
 
-                        <!-- Đến ngày -->
+                        
                         <div class="col-6 col-md-auto">
                             <div class="input-group input-group-solid input-group-sm">
                                 <span class="input-group-text text-muted border-end-0"><i class="ki-duotone ki-calendar-8 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i></span>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
 
-                        <!-- Loại GD -->
+                        
                         <div class="col-12 col-md-auto">
                             <select name="transaction_type" class="form-select form-select-sm form-select-solid" data-control="select2" data-hide-search="true">
                                 <option value="">-- Tất cả Giao dịch --</option>
@@ -53,7 +53,7 @@
                             </select>
                         </div>
 
-                        <!-- Search -->
+                        
                         <div class="col-12 col-md-auto flex-grow-1">
                             <div class="position-relative">
                                 <i class="ki-duotone ki-magnifier fs-4 position-absolute ms-3 top-50 translate-middle-y text-gray-500"><span class="path1"></span><span class="path2"></span></i>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
+                        
                         <div class="col-12 col-md-auto text-end">
                             <a href="{{ route('admin.stock_movements.index') }}" class="btn btn-sm btn-light fw-bold me-2">Xóa lọc</a>
                             <button type="submit" class="btn btn-sm btn-primary fw-bold"><i class="ki-duotone ki-filter fs-5"></i> Lọc dữ liệu</button>
@@ -70,7 +70,7 @@
                 </form>
             </div>
 
-            <!-- BẢNG DỮ LIỆU -->
+            
             <div class="table-responsive">
                 <table class="table align-middle table-row-dashed fs-6 gy-4 text-nowrap border-bottom">
                     <thead>

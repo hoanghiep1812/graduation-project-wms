@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Tạo Phiếu Nhập Kho (PO)')
+@section('title', 'Tạo Phiếu Nhập Kho ')
 
 @section('content')
 
@@ -13,25 +13,24 @@
                         <span class="fw-bold text-gray-800 fs-3">Tạo Phiếu Nhập Mới</span>
                     </h3>
                 </div>
-
-                <!-- BODY -->
+                
                 <div class="card-body pt-5">
                     <form action="{{ route('admin.inbound.store') }}" method="POST">
                         @csrf
 
-                        <!-- ===== 1. THÔNG TIN CHUNG ===== -->
+                        
                         <div class="mb-8">
                             <h4 class="fw-bold mb-5 fs-5">1. Thông tin chứng từ</h4>
 
                             <div class="row g-5">
-                                <!-- PO -->
+                                
                                 <div class="col-md-4">
                                     <label class="required fs-6 fw-semibold mb-2">Mã phiếu</label>
                                     <input type="text" class="form-control form-control-solid bg-light fw-bold text-muted"
                                         name="po_number" value="{{ $autoPoNumber }}" readonly>
                                 </div>
 
-                                <!-- Supplier -->
+                                
                                 <div class="col-md-4">
                                     <label class="required fs-6 fw-semibold mb-2">Nhà Cung Cấp</label>
                                     <select name="supplier_id" class="form-select form-select-solid" data-control="select2"
@@ -49,7 +48,7 @@
 
                         <div class="separator my-8"></div>
 
-                        <!-- ===== 2. ITEMS ===== -->
+                        
                         <div class="mb-5">
 
                             <div class="d-flex justify-content-between align-items-center mb-5">

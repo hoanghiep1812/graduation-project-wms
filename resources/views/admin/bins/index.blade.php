@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Quản lý Kệ Hàng (Bin Locations)')
+@section('title', 'Quản lý Kệ Hàng ')
 
 @section('content')
     {{-- Hiển thị thông báo kiểu Enterprise, có icon và màu dịu --}}

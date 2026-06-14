@@ -2,20 +2,20 @@
     data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
     data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
 
-    <!-- 1. LOGO AREA -->
+    
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
         <a href="{{ route('admin.dashboard.index') }}" class="text-decoration-none d-flex align-items-center">
-            <!-- Bản mở rộng -->
+            
             <h2 class="fw-bolder text-white m-0 app-sidebar-logo-default fs-2 tracking-tight">
                 Easy<span class="text-primary">WMS</span>
             </h2>
-            <!-- Bản thu gọn -->
+            
             <h2 class="fw-bolder text-white m-0 app-sidebar-logo-minimize fs-3">
                 E<span class="text-primary">W</span>
             </h2>
         </a>
 
-        <!-- Nút Toggle Arrow -->
+        
         <div id="kt_app_sidebar_toggle"
             class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm bg-gray-800 text-white btn-active-color-primary h-30px w-30px position-absolute top-50 start-100 translate-middle rotate {{ request()->cookie('sidebar_minimize_state') === 'on' ? 'active' : '' }}"
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <!-- 2. MENU KHU VỰC -->
+    
     <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
         <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper">
             <div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true"
@@ -38,7 +38,7 @@
                 <div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_app_sidebar_menu"
                     data-kt-menu="true" data-kt-menu-expand="false">
 
-                    <!-- Dashboard -->
+                    
                     @if(auth()->check() && auth()->user()->isAdmin())
                         <div class="menu-item">
                             <a class="menu-link {{ request()->routeIs('admin.dashboard.index') ? 'active' : '' }}"
@@ -52,13 +52,13 @@
                         </div>
                     @endif
 
-                    <!-- Phân hệ: Vận Hành -->
+                    
                     <div class="menu-item pt-5">
                         <div class="menu-content"><span
                                 class="menu-heading fw-bold text-uppercase fs-7 text-gray-500">Vận Hành</span></div>
                     </div>
 
-                    <!-- Menu: Nhập / Xuất -->
+                    
                     <div data-kt-menu-trigger="click"
                         class="menu-item menu-accordion {{ request()->routeIs('admin.inbound.*', 'admin.sales_orders.*') ? 'here show' : '' }}">
                         <span class="menu-link">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
 
-                    <!-- Menu: Tồn Kho -->
+                    
                     <div data-kt-menu-trigger="click"
                         class="menu-item menu-accordion {{ request()->routeIs('admin.inventory.*', 'admin.reslotting.*', 'admin.stock_movements.*', 'admin.audits.*') ? 'here show' : '' }}">
                         <span class="menu-link">
@@ -131,14 +131,14 @@
                     </div>
 
                     @if(auth()->check() && auth()->user()->isAdmin())
-                        <!-- Phân hệ: Cấu Hình -->
+                        
                         <div class="menu-item pt-5">
                             <div class="menu-content">
                                 <span class="menu-heading fw-bold text-uppercase fs-7 text-gray-500">Cấu Hình</span>
                             </div>
                         </div>
 
-                        <!-- Menu: Dữ Liệu Chủ -->
+                        
                         <div data-kt-menu-trigger="click"
                             class="menu-item menu-accordion {{ request()->routeIs('admin.zones.*', 'admin.bins.*', 'admin.products.*', 'admin.suppliers.*', 'admin.partners.*') ? 'here show' : '' }}">
                             <span class="menu-link">
@@ -186,7 +186,7 @@
                             </div>
                         </div>
 
-                        <!-- Menu: Phân Quyền -->
+                        
                         <div data-kt-menu-trigger="click"
                             class="menu-item menu-accordion {{ request()->routeIs('admin.users.*') ? 'here show' : '' }}">
                             <span class="menu-link">
