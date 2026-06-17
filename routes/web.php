@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StockMovementController;
+use App\Http\Controllers\Admin\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -174,5 +175,13 @@ Route::middleware(['auth'])->group(function () {
 	            Route::post('/{id}/complete', 'complete')->name('complete');
 	        });
 		});
+
+		Route::controller(ReportController::class)
+            ->prefix('reports')
+            ->name('reports.')
+            ->group(function () {
+                Route::get('/inventory', 'inventoryReport')->name('inventory');
+                Route::get('/inventory/export', 'exportInventoryReport')->name('inventory.export');
+            });
 	});
 });

@@ -92,7 +92,7 @@
                         <span class="menu-link">
                             <span class="menu-icon"><i class="ki-duotone ki-abstract-26 fs-2"><span
                                         class="path1"></span><span class="path2"></span></i></span>
-                            <span class="menu-title">Tồn Kho</span>
+                            <span class="menu-title">Quản lý kho</span>
                             <span class="menu-arrow"></span>
                         </span>
                         <div class="menu-sub menu-sub-accordion">
@@ -128,7 +128,26 @@
                                 </div>
                             @endif
                         </div>
-                    </div>
+                    </div>                    
+                    @if(auth()->check() && auth()->user()->isAdmin())
+                        <div class="menu-item pt-5">
+                            <div class="menu-content">
+                                <span class="menu-heading fw-bold text-uppercase fs-7 text-gray-500">Báo Cáo & Thống Kê</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->routeIs('admin.reports.inventory') ? 'active' : '' }}" 
+                               href="{{ route('admin.reports.inventory') }}">
+                                <span class="menu-icon">
+                                    <i class="ki-duotone ki-chart-pie-4 fs-2">
+                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                                    </i>
+                                </span>
+                                <span class="menu-title">Báo Cáo Nhập Xuất Tồn</span>
+                            </a>
+                        </div>
+                    @endif                    
 
                     @if(auth()->check() && auth()->user()->isAdmin())
                         
@@ -185,25 +204,16 @@
                                 </div>
                             </div>
                         </div>
-
                         
-                        <div data-kt-menu-trigger="click"
-                            class="menu-item menu-accordion {{ request()->routeIs('admin.users.*') ? 'here show' : '' }}">
-                            <span class="menu-link">
-                                <span class="menu-icon"><i class="ki-duotone ki-user fs-2"><span class="path1"></span><span
-                                            class="path2"></span></i></span>
-                                <span class="menu-title">Phân Quyền</span>
-                                <span class="menu-arrow"></span>
-                            </span>
-                            <div class="menu-sub menu-sub-accordion">
-                                <div class="menu-item">
-                                    <a class="menu-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}"
-                                        href="{{ route('admin.users.index') }}">
-                                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
-                                        <span class="menu-title">Danh Sách Nhân Sự</span>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
+                                <span class="menu-icon">
+                                    <i class="ki-duotone ki-user fs-2">
+                                        <span class="path1"></span><span class="path2"></span>
+                                    </i>
+                                </span>
+                                <span class="menu-title">Tài Khoản & Phân Quyền</span>
+                            </a>
                         </div>
                     @endif
 

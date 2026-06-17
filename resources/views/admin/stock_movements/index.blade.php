@@ -21,56 +21,135 @@
 
         <div class="card-body pt-5">
             
-            
             <div class="bg-light rounded p-4 mb-7 border border-gray-300 border-dashed">
                 <form method="GET" action="{{ route('admin.stock_movements.index') }}">
                     <div class="row g-3 align-items-center">
-                        
-                        
-                        <div class="col-6 col-md-auto">
-                            <div class="input-group input-group-solid input-group-sm">
-                                <span class="input-group-text text-muted border-end-0"><i class="ki-duotone ki-calendar-8 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i></span>
-                                <input type="date" name="from_date" value="{{ request('from_date') }}" class="form-control form-control-solid border-start-0 ps-0" title="Từ ngày" />
+
+                        <!-- Ngày bắt đầu -->
+                        <div class="col-12 col-lg-2">
+                            <div class="input-group input-group-solid input-group-sm cursor-pointer"
+                                id="kt_datepicker_start_wrapper">
+                                <span class="input-group-text border-end-0">
+                                    <i class="ki-duotone ki-calendar-8 fs-6">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                        <span class="path6"></span>
+                                    </i>
+                                </span>
+
+                                <input type="text"
+                                    id="kt_datepicker_start"
+                                    name="from_date"
+                                    value="{{ request('from_date') }}"
+                                    class="form-control form-control-solid border-start-0 ps-0 cursor-pointer"
+                                    placeholder="Bắt đầu"
+                                    readonly />
                             </div>
                         </div>
 
-                        
-                        <div class="col-6 col-md-auto">
-                            <div class="input-group input-group-solid input-group-sm">
-                                <span class="input-group-text text-muted border-end-0"><i class="ki-duotone ki-calendar-8 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i></span>
-                                <input type="date" name="to_date" value="{{ request('to_date') }}" class="form-control form-control-solid border-start-0 ps-0" title="Đến ngày" />
+                        <!-- Dấu - -->
+                        <div class="col-auto d-none d-lg-flex justify-content-center">
+                            <span class="fw-bold fs-3 text-muted">-</span>
+                        </div>
+
+                        <!-- Ngày kết thúc -->
+                        <div class="col-12 col-lg-2">
+                            <div class="input-group input-group-solid input-group-sm cursor-pointer"
+                                id="kt_datepicker_end_wrapper">
+                                <span class="input-group-text border-end-0">
+                                    <i class="ki-duotone ki-calendar-8 fs-6">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                        <span class="path6"></span>
+                                    </i>
+                                </span>
+
+                                <input type="text"
+                                    id="kt_datepicker_end"
+                                    name="to_date"
+                                    value="{{ request('to_date') }}"
+                                    class="form-control form-control-solid border-start-0 ps-0 cursor-pointer"
+                                    placeholder="Kết thúc"
+                                    readonly />
                             </div>
                         </div>
 
-                        
-                        <div class="col-12 col-md-auto">
-                            <select name="transaction_type" class="form-select form-select-sm form-select-solid" data-control="select2" data-hide-search="true">
-                                <option value="">-- Tất cả Giao dịch --</option>
-                                <option value="inbound" {{ request('transaction_type') == 'inbound' ? 'selected' : '' }}>Nhập kho (In)</option>
-                                <option value="outbound" {{ request('transaction_type') == 'outbound' ? 'selected' : '' }}>Xuất kho (Out)</option>
-                                <option value="transfer" {{ request('transaction_type') == 'transfer' ? 'selected' : '' }}>Dời kệ (Move)</option>
-                                <option value="adjustment" {{ request('transaction_type') == 'adjustment' ? 'selected' : '' }}>Kiểm kê (Adjust)</option>
+                        <!-- Loại giao dịch -->
+                        <div class="col-12 col-lg-2">
+                            <select name="transaction_type"
+                                    class="form-select form-select-sm form-select-solid"
+                                    data-control="select2"
+                                    data-hide-search="true">
+
+                                <option value="">Tất cả GD</option>
+
+                                <option value="inbound"
+                                    {{ request('transaction_type') == 'inbound' ? 'selected' : '' }}>
+                                    Nhập kho
+                                </option>
+
+                                <option value="outbound"
+                                    {{ request('transaction_type') == 'outbound' ? 'selected' : '' }}>
+                                    Xuất kho
+                                </option>
+
+                                <option value="transfer"
+                                    {{ request('transaction_type') == 'transfer' ? 'selected' : '' }}>
+                                    Dời kệ
+                                </option>
+
+                                <option value="adjustment"
+                                    {{ request('transaction_type') == 'adjustment' ? 'selected' : '' }}>
+                                    Kiểm kê
+                                </option>
                             </select>
                         </div>
 
-                        
-                        <div class="col-12 col-md-auto flex-grow-1">
+                        <!-- Search -->
+                        <div class="col-12 col-lg-4">
                             <div class="position-relative">
-                                <i class="ki-duotone ki-magnifier fs-4 position-absolute ms-3 top-50 translate-middle-y text-gray-500"><span class="path1"></span><span class="path2"></span></i>
-                                <input type="text" name="search" value="{{ request('search') }}" class="form-control form-control-sm form-control-solid ps-10" placeholder="Tìm tên SP, SKU, Vị trí..." />
+                                <i class="ki-duotone ki-magnifier fs-4 position-absolute ms-3 top-50 translate-middle-y text-gray-500">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+
+                                <input type="text"
+                                    name="search"
+                                    value="{{ request('search') }}"
+                                    class="form-control form-control-sm form-control-solid ps-10"
+                                    placeholder="Tìm tên SP, SKU, vị trí..." />
                             </div>
                         </div>
 
-                        
-                        <div class="col-12 col-md-auto text-end">
-                            <a href="{{ route('admin.stock_movements.index') }}" class="btn btn-sm btn-light fw-bold me-2">Xóa lọc</a>
-                            <button type="submit" class="btn btn-sm btn-primary fw-bold"><i class="ki-duotone ki-filter fs-5"></i> Lọc dữ liệu</button>
+                        <!-- Buttons -->
+                        <div class="col-12 col-lg-auto">
+                            <div class="d-flex gap-2 justify-content-end">
+
+                                <a href="{{ route('admin.stock_movements.index') }}"
+                                class="btn btn-sm btn-light fw-bold">
+                                    Xóa lọc
+                                </a>
+
+                                <button type="submit"
+                                        class="btn btn-sm btn-primary fw-bold">
+                                    <i class="ki-duotone ki-filter fs-5"></i>
+                                    Lọc
+                                </button>
+
+                            </div>
                         </div>
+
                     </div>
                 </form>
             </div>
 
-            
+
             <div class="table-responsive">
                 <table class="table align-middle table-row-dashed fs-6 gy-4 text-nowrap border-bottom">
                     <thead>
@@ -185,7 +264,6 @@
                 </table>
             </div>
 
-            
             <div class="d-flex flex-stack flex-wrap mt-5">
                 <div class="fs-6 fw-semibold text-gray-500 mb-2 mb-md-0">
                     Hiển thị từ {{ $movements->firstItem() ?? 0 }} đến {{ $movements->lastItem() ?? 0 }} trên tổng số {{ $movements->total() ?? 0 }}
@@ -198,3 +276,38 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Cấu hình Flatpickr
+        const flatpickrConfig = {
+            altInput: true,
+            altFormat: "d/m/Y",
+            dateFormat: "Y-m-d",
+            allowInput: false, 
+            locale: {
+                firstDayOfWeek: 1, 
+                weekdays: {
+                    shorthand: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+                    longhand: ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"]
+                },
+                months: {
+                    shorthand: ["Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12"],
+                    longhand: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"]
+                }
+            }
+        };
+        
+        let startPicker = flatpickr("#kt_datepicker_start", flatpickrConfig);
+        let endPicker = flatpickr("#kt_datepicker_end", flatpickrConfig);
+                
+        document.getElementById('kt_datepicker_start_wrapper').addEventListener('click', function() {
+            startPicker.open();
+        });
+        
+        document.getElementById('kt_datepicker_end_wrapper').addEventListener('click', function() {
+            endPicker.open();
+        });
+    });
+</script>
+@endpush
